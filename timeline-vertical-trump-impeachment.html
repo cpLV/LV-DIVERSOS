@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>Timeline vertical responsive</title>
+</head>
+<style>
+<!--ESTILO PRIMARIO-->
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-size: 100%;
+  font-family: "Droid Serif", serif;
+  color: #000000;
+  background-color: #eeeeee;
+}
+a {
+  color: #acb7c0;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+}
+img {
+  max-width: 100%;
+}
+h1, h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+h2 {
+  font-size:22px;
+  line-height:24px;
+  margin:0;
+}
+<!--MÓDULOS REUTILIZABLES-->
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.cd-container::after {
+  /* clearfix */
+  content: '';
+  display: table;
+  clear: both;
+}
+header {
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  background: #303e49;
+}
+header h1 {
+  color: white;
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+@media only screen and (min-width: 1170px) {
+  header {
+    height: 300px;
+    line-height: 300px;
+  }
+  header h1 {
+    font-size: 24px;
+    font-size: 1.5rem;
+  }
+}
+<!--TIMELINE-->
+#cd-timeline {
+  position: relative;
+  /*padding: 2em 0;*/
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+#cd-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #ffffff;
+}
+@media only screen and (min-width: 1170px) {
+  #cd-timeline {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  #cd-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
+}
+.cd-timeline-block {
+  position: relative;
+  margin: 2em 0;
+}
+.cd-timeline-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-timeline-block:first-child {
+  margin-top: 0;
+}
+.cd-timeline-block:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 1170px) {
+  #cd-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
+  .cd-timeline-block {
+    margin: 4em 0;
+  }
+  .cd-timeline-block:first-child {
+    margin-top: 0;
+  }
+  .cd-timeline-block:last-child {
+    margin-bottom: 0;
+  }
+}
+.cd-timeline-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  text-align:center;
+  color:#ffffff;
+}
+.cd-timeline-img .cd-fecha{
+	display: block;
+    margin: 30% 0;
+    font-size: 14px;
+	line-height:16px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: bold;
+}
+.cd-timeline-img img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+.cd-timeline-img.cd-picture {
+  background: #3e4d67;
+}
+.cd-timeline-img.cd-movie {
+  background: #ff3333;
+}
+.cd-timeline-img.cd-location {
+  background: #66cc66;
+}
+@media only screen and (min-width: 1170px) {
+  #cd-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
+  .cd-timeline-img {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+  .cssanimations .cd-timeline-img.is-hidden {
+    visibility: hidden;
+  }
+  .cssanimations .cd-timeline-img.bounce-in {
+    visibility: visible;
+    -webkit-animation: cd-bounce-1 0.6s;
+    -moz-animation: cd-bounce-1 0.6s;
+    animation: cd-bounce-1 0.6s;
+  }
+}
+.cd-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  background: white;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 3px 0 #cccccc;
+}
+.cd-timeline-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-timeline-content h2 {
+  color: #000000;
+}
+.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  display: inline-block;
+}
+.cd-timeline-content p {
+  font-size: 15px;
+  line-height: 20px;
+  margin: 5px 0 15px 0;
+}
+.cd-timeline-content .cd-date {
+  color:#ff3333;
+  font-size: 14px;
+  line-height:16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold; 
+}
+.cd-timeline-content .cd-read-more {
+  float: right;
+  padding: .8em 1em;
+  background: #3e4d67;
+  color: white;
+  border-radius: 0.25em;
+}
+.cd-timeline-content .cd-read-more:hover {
+	bac kground-color: #001c4c;
+}
+.no-touch .cd-timeline-content .cd-read-more:hover {
+  background-color: #001c4c;
+}
+.cd-timeline-content .cd-date {
+  float: left;
+  padding: .8em 0;
+  /*opacity: .7;*/
+}
+.cd-timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-right: 7px solid white;
+}
+@media only screen and (min-width: 768px) {
+.cd-timeline-img .cd-fecha{
+	display: block;
+    margin: 30% 0;
+    font-size: 14px;
+	line-height:16px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: bold;
+}
+  .cd-timeline-content h2 {
+    font-size: 26px;
+    line-height:28px;
+  }
+.cd-timeline-content p {
+  font-size: 16px;
+  line-height: 22px;
+  margin: 15px 0 15px 0;
+}
+  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-content {
+    margin-left: 0;
+    padding: 1.6em;
+    width: 45%;
+  }
+  .cd-timeline-content::before {
+    top: 24px;
+    left: 100%;
+    border-color: transparent;
+    border-left-color: white;
+  }
+  .cd-timeline-content .cd-read-more {
+    float: left;
+  }
+  .cd-timeline-content .cd-date {
+    position: absolute;
+    width: 100%;
+    left: 122%;
+    top: 6px;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+.cd-timeline-img .cd-fecha{
+	display: block;
+    margin: 26% 0;
+    font-size: 22px;
+	line-height:27px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: bold;
+}
+  .cd-timeline-block:nth-child(even) .cd-timeline-content {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+    top: 24px;
+    left: auto;
+    right: 100%;
+    border-color: transparent;
+    border-right-color: white;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+    left: auto;
+    right: 122%;
+    text-align: right;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  /* inverse bounce effect on even content blocks */
+  .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+    -webkit-animation: cd-bounce-2-inverse 0.6s;
+    -moz-animation: cd-bounce-2-inverse 0.6s;
+    animation: cd-bounce-2-inverse 0.6s;
+  }
+}
+#cd-timeline {
+  position: relative;
+  /*padding: 2em 0;*/
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+#cd-timeline::before {
+  /* this is the vertical line */
+  content: '';
+  position: absolute;
+  top: 0;
+  /*left: 18px;*/
+  height: 100%;
+  width: 4px;
+  background: #ffffff;
+}
+</style>
+<html>
+<body>
+	<section id="cd-timeline" class="cd-container">
+<!-- BLOQUE 1 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2015</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>16 de junio de 2015</h2>
+				<p>El magnate se mete en política sumándose a la carrera republicana</p>
+				<a href="http://www.lavanguardia.com/internacional/20150616/54432335811/donald-trump-candidato-republicano.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+<!-- BLOQUE 2 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2016</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>20 de julio de 2016</h2>
+				<p>Trump, elegido oficialmente candidato republicano</p>
+				<a href="http://www.lavanguardia.com/internacional/20160720/403338743055/donald-trump-candidato-republicano-presidencia-estados-unidos-oficial.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+<!-- BLOQUE 3 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2016</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>8 de noviembre de 2016</h2>
+				<p>Trump gana las elecciones y el mundo se tambalea</p>
+				<a href="http://www.lavanguardia.com/internacional/20161109/411709442508/donald-trump-nuevo-presidente.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+<!-- BLOQUE 4 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2016</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>10 de noviembre de 2016</h2>
+				<p>Obama desaconseja el fichaje de Flynn por su historial con Rusia</p>
+				<a href="http://www.lavanguardia.com/internacional/20170508/422397695192/obama-aconsejo-trump-no-contratara-flyn-nexos-rusia.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 5 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2016</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>18 de noviembre de 2016</h2>
+				<p>Trump elige a Flynn como consejero de seguridad nacional</p>
+				<a href="http://www.lavanguardia.com/internacional/20161118/411960781019/trump-ofrece-puesto-asesor-seguridad-nacional-general-retirado-michael-flynn.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+		
+<!-- BLOQUE 6 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>6 de enero de 2017</h2>
+				<p>Putin habría ordenado influir en las elecciones estadounidenses</p>
+				<a href="http://www.lavanguardia.com/internacional/20170106/413151202845/informe-putin-ordeno-influir-elecciones-eeuu.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 7 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>20 de enero</h2>
+				<p>Trump toma el poder y empieza su andadura en la Casa Blanca</p>
+				<a href="http://www.lavanguardia.com/internacional/20170120/413530442699/donald-trump-presidente.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 8 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>13 de febrero</h2>
+				<p>Dimite Flynn por haber mentido sobre su reunión con el embajador ruso</p>
+				<a href="http://www.lavanguardia.com/internacional/20170214/4216101826/dimite-michael-flynn-asesor-seguridad-donald-trump-rusia-kremlin.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 9 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>4 de marzo</h2>
+				<p>Trump acusa a Obama de espiarle</p>
+				<a href="http://www.lavanguardia.com/internacional/20170304/42537855036/trump-acusa-obama-grabar-llamadas-telefonicas-antes-elecciones.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 10 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>10 de marzo</h2>
+				<p>Flynn ejerció de consultor extranjero sin informar a Trump</p>
+				<a href="http://www.lavanguardia.com/internacional/20170310/42745503183/flynn-trabajo-gobierno-truquia-trump-desconocia.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+<!-- BLOQUE 11 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>16 de marzo</h2>
+				<p>Flynn cobró de entidades vinculadas al Kremlin</p>
+				<a href="http://www.lavanguardia.com/politica/20170316/42935097268/exasesor-de-trump-michael-flynn-recibio-miles-de-dolares-de-entidades-rusas.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 12 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>20 de marzo</h2>
+				<p>El FBI empieza a investigar los lazos con el Kremlin</p>
+				<a href="http://www.lavanguardia.com/internacional/20170320/421040054578/fbi-james-comey-donald-trump-rusia.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+<!-- BLOQUE 13 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>31 de marzo</h2>
+				<p>Denegada la solicitud de inmunidad para Flynn</p>
+				<a href="http://www.lavanguardia.com/internacional/20170331/421332795391/michael-flynn-inmunidadc.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 14 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>2 de abril</h2>
+				<p>Flynn ocultó a la Casa Blanca sus ingresos de empresas rusas</p>
+				<a href="http://www.lavanguardia.com/politica/20170402/421404476031/flynn-exasesor-de-trump-oculto-a-casa-blanca-sus-ingresos-de-empresas-rusas.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 15 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>27 de abril</h2>
+				<p>El Pentágono investiga los pagos del extranjero a Flynn</p>
+				<a href="http://www.lavanguardia.com/politica/20170427/422096372229/el-pentagono-investiga-pagos-del-extranjero-a-exasesor-de-trump.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 16 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>3 de mayo</h2>
+				<p>Clinton culpa de su derrota al FBI y a los hackers rusos</p>
+				<a href="http://www.lavanguardia.com/internacional/20170503/422235722502/clinton-elecciones-eeuu-fbi-hackers-rusos.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->			
+
+<!-- BLOQUE 17 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>8 de mayo</h2>
+				<p>Sally Yates habla de un posible “chantaje” ruso a Flynn</p>
+				<a href="http://www.lavanguardia.com/internacional/20170508/422400857235/sally-yates-michael-flynn-chantaje-rusia.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 18 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>9 de mayo</h2>
+				<p>Trump destituye por sorpresa al director del FBI</p>
+				<a href="http://www.lavanguardia.com/internacional/20170510/422426806036/trump-despide-director-fbi-james-comey.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->			
+
+<!-- BLOQUE 19 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>10 de mayo</h2>
+				<p>Trump acerca posturas con Rusia</p>
+				<a href="http://www.lavanguardia.com/internacional/20170510/422465381021/trump-lavrov-rusia-director-fbi.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 20 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>12 de mayo</h2>
+				<p>Trump pidió lealtad a Comey y éste sólo prometió honestidad</p>
+				<a href="http://www.lavanguardia.com/internacional/20170512/422516624537/trump-fbi.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->				
+
+<!-- BLOQUE 21 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>15 de mayo</h2>
+				<p>Trump desveló secretos altamente clasificados al ministro ruso de Exteriores</p>
+				<a href="http://www.lavanguardia.com/internacional/20170515/422610308713/trump-informacion-secreta-rusia-casa-blanca.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 22 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>16 de mayo</h2>
+				<p>Trump habría presionado a Comey para que dejara de investigar a Flynn</p>
+				<a href="http://www.lavanguardia.com/internacional/20170516/422632618615/trump-comey-investigacion-flynn.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<span class="cd-date">FECHA CLAVE</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->				
+		
+<!-- BLOQUE 23 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>17 de mayo</h2>
+				<p>Primera petición de ‘impeachment’ a Trump</p>
+				<a href="http://www.lavanguardia.com/internacional/20170517/422678562943/impeachment-trump-apoyo-republicano.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		
+<!-- BLOQUE 24 -->
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<!--<img src="img/cd-icon-picture.svg" alt="Picture">-->
+				<span class="cd-fecha">2017</span>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>18 de mayo</h2>
+				<p>Se nombra a fiscal especial para el ‘Rusiagate’</p>
+				<a href="http://www.lavanguardia.com/internacional/20170518/422702756727/estados-unidos-rusiagate-trump.html" target="_blank" class="cd-read-more">Ver la noticia</a>
+				<!--<span class="cd-date">10 de junio</span>-->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->				
+				
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	ga('create', 'UA-48014931-1', 'codyhouse.co');
+  	ga('send', 'pageview');
+
+  	jQuery(document).ready(function($){
+  		$('.close-carbon-adv').on('click', function(event){
+  			event.preventDefault();
+  			$('#carbonads-container').hide();
+  		});
+  	});
+</script>
+</body>
+</html>

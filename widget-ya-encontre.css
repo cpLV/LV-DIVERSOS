@@ -1,0 +1,97 @@
+/* ESTILOS WIDGET YA ENCONTRÉ */
+.widget-ya-encontre-12-cols{
+                color:#ffffff;
+                margin: 0 0 20px 0;
+                padding: 0;
+                }
+.widget-ya-encontre-12-cols .contenedor{
+                border:1px solid #dc3e7d;
+                margin: 0;
+                padding:17px 15px;
+                }
+.widget-ya-encontre-12-cols .logo-claim{
+                display:inline-block;
+                margin: 0;
+                padding:0;
+                text-align:center;
+                width:50%;
+                }
+.widget-ya-encontre-12-cols .logo-claim .logo-yaencontre{
+                margin: -2px 0 0 0;
+                padding:0;
+                }
+.widget-ya-encontre-12-cols .logo-claim .claim{
+                color:#000000;
+                font-family:"Open Sans",Arial,sans-serif;
+                font-size:16px;
+                line-height:18px;
+                margin: 3px 0 0 0;
+                padding:0;
+                }
+.widget-ya-encontre-12-cols .botones .comprar,.alquilar{
+                background-color:#dc3e7d;
+                color:#ffffff;
+                font-family:"Open Sans",Arial,sans-serif;
+                font-size:14px;
+                line-height:16px;
+                padding:10px 40px;
+                text-decoration:none;
+                text-transform:uppercase;
+                -webkit-border-radius:5px;
+                -moz-border-radius:5px;border-radius:5px;
+                }
+.widget-ya-encontre-12-cols .comprar{
+                margin-right:2px;
+                }
+.widget-ya-encontre-12-cols .comprar:hover, .alquilar:hover{
+                color:#ffffff;
+                background-color:#bb225f;
+                text-decoration:none;
+                }
+.widget-ya-encontre-12-cols .comprar:focus, .alquilar:focus{
+                color:#ffffff;
+                background-color:#bb225f;
+                text-decoration:none;
+                }
+.widget-ya-encontre-12-cols .botones{
+    float: right;
+                margin: 17px auto 0 auto;
+                text-align:center;
+    width: 50%;
+}
+/* MEDIA QUERIES WIDGET YA ENCONTRÉ */
+@media screen and (max-width: 767px){
+                .widget-ya-encontre-12-cols .logo-claim{
+                               display:block;
+                               margin: 0;
+                               padding:0;
+                               text-align:center;
+                               width:100%;
+                }
+                .widget-ya-encontre-12-cols .comprar,.alquilar{
+                               padding:10px 40px;
+                               }
+                .widget-ya-encontre-12-cols .botones{
+                               display: block;
+                               float: none;
+                               margin-top: 28px;
+                               margin-bottom: 14px;
+                               width: 100%;
+                }
+}
+/* MEDIA QUERIES WIDGET YA ENCONTRÉ */
+@media screen and (max-width: 329px){
+                .widget-ya-encontre-12-cols .botones{
+                               display: block;
+                               float: none;
+                               margin-top: 10px;
+                               margin-bottom: 5px;
+                }
+                .widget-ya-encontre-12-cols .comprar,.alquilar{
+                               display:inline-block;
+                               margin-top:8px;
+                               }
+                .widget-ya-encontre-12-cols .comprar{
+                               margin-right:-4px;
+                               }
+                }

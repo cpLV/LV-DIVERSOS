@@ -1,0 +1,49 @@
+/* ESTILOS CABEZAL ECONOMÍA */
+.miniheader-economia {  
+	background-color:#ffffff;
+	height:52px;
+	margin:0;
+	padding:10px 0;
+	overflow:hidden;
+	text-align:right;
+	}
+.miniheader-economia .titulo {
+	float:left;
+	margin-left:0px;
+	margin-top:8px;
+	}
+.miniheader-economia h1, .enlace-titulo {
+	display:inline-block;
+	color:#004b88;
+    font-family: "TiemposHeadline-Black";
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 28px;
+    line-height: 1.75rem;
+	/*cursor:default;*/
+	}
+.miniheader-economia .enlace-titulo:hover {
+	color:#004b88;
+	text-decoration:none;
+	}
+/* MEDIA QUERIES CABECERA ECONOMÍA */
+@media screen and (max-width: 646px) {
+	.miniheader-economia {  
+		background: #2a4a73;
+		height: 40px;
+		padding: 5px 8px;
+		white-space: nowrap;
+		margin: 0 -8px 10px -8px
+	}
+	.miniheader-economia .titulo {  
+		margin-top:0px;
+		margin-left:8px;
+	}
+	.miniheader-economia h1, .enlace-titulo {
+		color:#ffffff;
+	}
+	.miniheader-economia .enlace-titulo:hover {
+		color:#ffffff;
+		text-decoration:none;
+	}
+}

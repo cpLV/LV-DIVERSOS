@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--INICIALIZAR EL VIEWPORT Y EVITAR QUE PUEDA SER REDIMENSIONADO POR EL USUARIO-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!--LLAMADA A LA HOJA DE ESTILOS DE LEAFLET-->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+   integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+   crossorigin=""/>
+<!--LLAMADA AL CÓDIGO DE LEAFLET. ES IMPORTANTE COLOCARLA DESPUÉS DE LA LLAMADA A LA HOJA DE ESTILOS-->
+	<script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
+   integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+   crossorigin="">
+   </script>
+   <style>
+	#mapid {
+	/*box-shadow: 5px 5px 5px #888;*/
+	outline: none;
+	position: relative;
+	width: 100%; 
+	height: 600px; 
+	}
+</style>
+</head>
+<body>
+	<div id="mapid" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+</body>
+<script>
+<!--MAPA. SETVIEW NECESITA COORDENADAS Y NIVEL DE ZOOM-->
+	var mymap = L.map('mapid').setView([41.384888, 2.170490], 10); 
+<!--ATRIBUCIÓN-->
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		id: 'mapbox.streets-basic'
+	}).addTo(mymap);
+<!--MARCADOR-->
+	var marker = L.marker([41.392704, 2.144527],{draggable: true}).addTo(mymap);
+	var marker = L.marker([41.40257, 2.18782],{draggable: false}).addTo(mymap);
+<!--UN CÍRCULO-->	
+var circle = L.circle([41.39007, 2.16208], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(mymap);
+
+<!--UN POlÍGONO-->	
+var polygon = L.polygon([
+    [41.41351, 2.14302],
+    [41.42973, 2.16619],
+    [41.4099, 2.17649],
+	[41.39819, 2.16311]
+]).addTo(mymap);
+
+<!--PUP UPS DE ELEMENTOS EXISTENTES-->
+marker.bindPopup("<b>¡Hola!</b><br>Soy un popup.")<!--.openPopup()-->;
+marker.bindPopup("<b>¡Hola!</b><br>Soy un popup.")<!--.openPopup()-->;
+circle.bindPopup("Soy un círculo.");
+polygon.bindPopup("Soy un polígono.");
+<!--PUP UP AUTÓNOMO-->
+var popup = L.popup()
+    .setLatLng([41.392704, 2.144527])
+    .setContent("Soy un popup autónomo")
+    .openOn(mymap);
+<!--EVENTO: CLIC EN EL MAPA Y AVISO EN VENTANA MODAL -->	
+function onMapClick(e) {
+    alert("Has hecho clic en el mapa en la latitud y longitud " + e.latlng);
+}
+mymap.on('click', onMapClick);	
+<!--EVENTO: CLIC EN EL MAPA Y AVISO EN POPUP -->
+var popup = L.popup();
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("as hecho clic en el mapa en la latitud y longitud " + e.latlng.toString())
+        .openOn(mymap);
+}
+mymap.on('click', onMapClick);		
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title>jQuery Zoom Demo</title>
+	<style>
+		/* ESTILOS GENERALES */
+		* { 
+			border:0; margin:0; padding:0; 
+		}
+		p { 
+			background-color:#000000;
+			box-shadow:1px 1px #cccccc; 
+			color:#ffffff;
+			display:inline-block;
+			font:bold 13px/1 sans-serif;
+			opacity:0.6;
+			margin: 7px 0 0 0;
+			padding:10px 20px;
+			position:absolute;
+			text-align:center;
+			top:40%;	
+			left:30%;
+			}
+
+		/* ESTILOS CONTENEDOR */
+		.zoom {
+			border: solid 1px #dddddd;
+			display:inline-block;
+			padding: 10px;
+			position: relative;
+		}
+		/* ICONO LUPA */
+		.zoom:after {
+			content:'';
+			display:block; 
+			width:33px; 
+			height:33px; 
+			position:absolute; 
+			top:0;
+			right:0;
+			background:url(https://cdn.rawgit.com/Mariolv/PRUEBAS-LV/99079f41/icono-lupa.png);
+		}
+		.zoom img {
+			display: block;
+		}
+		.zoom img::selection { background-color: transparent; 
+		}
+	</style>
+	<script src='https://cdn.rawgit.com/Mariolv/PRUEBAS-LV/55122100/jquery.js'></script>
+	<script src='https://cdn.rawgit.com/Mariolv/PRUEBAS-LV/de1c08a3/jquery.zoom.min.js'></script>
+	<script>
+		$(document).ready(function(){
+			$('#imagen').zoom();
+		});
+	</script>
+</head>
+<body>
+	<span class='zoom' id='imagen'>
+		<img src='https://cdn.rawgit.com/Mariolv/PRUEBAS-LV/99079f41/plano_bcn_afectaciones_urbanisticas.gif' width='656' height='444' alt='Mapa de las afectaciones urbanísticas de Barcelona'/>
+		<p>Pasa sobre la imagen para verla ampliada</p>
+	</span>
+</body>
+</html>

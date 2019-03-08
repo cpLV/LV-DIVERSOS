@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Time Js</title>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:100,200,400,500,600,700');
+  .contador {
+    background-color: #f5f5f5;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    line-height: 48px;
+    font-size: 1.2em;
+    font-weight: 100;
+    color: #939393;
+    padding: 5px 0 8px 0;
+  }
+	.header-contador {
+	border-top: solid 2px #eeeeee;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    line-height: 48px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #000000;
+    padding: 0;
+	margin: 20px 0 0 0;
+    text-transform: uppercase;	
+	}
+</style>
+<body>
+<div class="header-contador">
+	<span>El contador</span>
+</div>
+<div id="demo" class="contador">
+<script>var cntDones = 0.273;
+var cntHomes = 0.131;
+var minsDones;
+var minsHomes;
+var minsDones2;
+var minsHomes2;
+function displayTime() {
+    var str = "";
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    hours2 = 22;
+    minutes2 = 1;
+    var minutsDia = minutes + 60*hours;
+    var minutsDia2 = minutes2 + 60*hours2;
+    if (hours < 6) {
+         document.getElementById("demo").innerHTML = "El día todavía no ha empezado";
+    }
+    
+    else if (hours >= 21) {
+        minutsDia2 = minutsDia2 - (6*60);
+        minsDones2 = minutsDia2*cntDones;
+        minsHomes2 = minutsDia2*cntHomes;
+        var horesDones2 = minsDones2/60;
+        var rhoresDones2 = Math.floor(horesDones2);
+        var minutsDones2 = (horesDones2 - rhoresDones2) * 60;
+        var rminutsDones2 = Math.round(minutsDones2);
+        
+        var horesHomes2 = minsHomes2/60;
+        var rhoresHomes2 = Math.floor(horesHomes2);
+        var minutsHomes2 = (horesHomes2 - rhoresHomes2) * 60;
+        var rminutsHomes2 = Math.round(minutsHomes2);
+        
+        document.getElementById("demo").innerHTML = "Desde que ha empezado el día...</br>si eres mujer has trabajado <strong>" + "<span style='color:white;background-color:#c40f5a';>" + rhoresDones + " h " + rminutsDones + " min " + "</strong></span>" + "</br>y si eres hombre<strong> " + "<span style='color:white;background-color:#f4b413';>" + rhoresHomes + " h " + rminutsHomes + " min</strong>" + "</span>";
+    }
+       
+    else {
+        minutsDia = minutsDia - (6*60);
+        minsDones = minutsDia*cntDones;
+        minsHomes = minutsDia*cntHomes;
+        var horesDones = minsDones/60;
+        var rhoresDones = Math.floor(horesDones);
+        var minutsDones = (horesDones - rhoresDones) * 60;
+        var rminutsDones = Math.round(minutsDones);
+       
+        var horesHomes = minsHomes/60;
+        var rhoresHomes = Math.floor(horesHomes);
+        var minutsHomes = (horesHomes - rhoresHomes) * 60;
+        var rminutsHomes = Math.round(minutsHomes);
+        
+        document.getElementById("demo").innerHTML = "Desde que ha empezado el día...</br>si eres mujer has trabajado <strong>" + "<span style='color:white;background-color:#c40f5a';>" + rhoresDones + " h " + rminutsDones + " min " + "</strong></span>" + "</br>y si eres hombre<strong> " + "<span style='color:white;background-color:#f4b413';>" + rhoresHomes + " h " + rminutsHomes + " min</strong>" + "</span>";
+    }
+       
+    return str;
+}
+displayTime()</script>
+
+</div>
+</body>
+</html>

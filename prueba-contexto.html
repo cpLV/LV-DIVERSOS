@@ -523,31 +523,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </b>qué es violencia, cuánta violencia es necesaria, sobre qué o quiénes hay que ejercerla y con qué intensidad para alcanzar un obje­tivo rebelde, esto es, “declarar la ­independencia de una parte del territorio nacional”. Un debate no exento de subjetividades que la sentencia no se debe permitir.</p>
 <p class="p">El <b>Código Penal </b>exige que para que se cometa un delito de rebelión debe haber un alzamiento violento y público. El reto para el tribunal no es menor. Deberá estudiar lo que ocurrió el 20 de septiembre en la <b>Conselleria d’Economia</b>, los diversos enfrentamientos con las <b>fuerzas de seguridad del Estado</b> en diversos puntos, los supuestos “<b>escraches</b>” y “<b>hostigamientos</b>” llevados a cabo en casas cuartel de la <b>Guardia Civil</b> y hoteles donde se alojaban los policías o las barreras humanas creadas en diversos colegios durante el 1 de octubre para evitar que los agentes requisaran las urnas –¿es violencia resistir?–.</p>
 	
-<!-- CAJA HTML -->
+	
+	
+	
+<!-- CAJA -->
 <style>
-/* CONTENEDOR */
-.caja {
+/* CONTENEDOR + CUERPO + PIE */
+.contenedor-caja {
 	background-color: #343434;
-	display: inline-block;
+	color:#ffffff;
+	height:850px;
 	margin:0 auto 30px auto;
 	text-align:center;
-	height: 960px;
-	}
-/* CABECERA */
-.caja .cabecera, .pie {
-	background-color: #343434;
+	vertical-align:top;
+	width:100%;
+}
+.contenedor-caja .cabecera, .pie {
 	color:#ffffff;
 	margin:0 auto;
 	padding:20px 10px 0 10px;
 }
-.caja .cabecera .titulo-cabecera {
+.contenedor-caja .cabecera .titulo-cabecera {
 	border-bottom:solid 1px #666666;
 	font-family: "TiemposHeadline-Medium",serif;
 	font-size:36px;
 	line-height:38px;
 	padding:0 0 15px 0;
 }
-.caja .cabecera .instrucciones-cabecera {
+.contenedor-caja .cabecera .instrucciones-cabecera {
 	display:inline-block;
 	font-family: "Open Sans", sans-serif;
 	font-size:18px;
@@ -555,38 +558,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	padding:10px 0;
 	text-transform:uppercase;
 }
-/* CUERPO */
-.caja .cuerpo {
+.contenedor-caja .cuerpo {
 	background-image: url("https://lostsightsblog.files.wordpress.com/2019/04/sala-fondo-480x700.png");
 	background-color: #343434;
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	border-bottom:solid 1px #666666;
-	height:700px;
-	width:500px;
+	height:598px;
+	width:410px;
 	margin:0 auto 15px auto;
 	position:relative;
 	text-align:center;
   }
-/* PIE */
-.pie {
+.contenedor-caja .pie {
 	display:inline-block;
 	font-family: "Open Sans", sans-serif;
 	font-size:14px;
 	line-height:18px;
-	margin: 0 0 30px 0;
 	padding:0 0 20px 0;
 	vertical-align:top;
 	text-align:center;
 }
-.pie .logo {
-  display:block;
-  margin:0 auto;
-  padding: 0 0 7px 0;
+.contenedor-caja .pie .logo {
+	border: solid 1px #999999;
+	display:block;
+	margin:0 auto 7px auto;
+	padding:0;
 }
-/* ANCHORS */
-.anchor-lightbox-tribunal img, .anchor-lightbox-fiscalia img, .anchor-lightbox-defensa img, .anchor-lightbox-acusados img {
+/* BOTONES ANCHORS */
+.boton-anchor-tribunal img, .boton-anchor-fiscalia img, .boton-anchor-defensa img, .boton-anchor-acusados img {
     width: 64px;
 	height:64px;
     border: 3px solid white;
@@ -595,78 +596,179 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: -webkit-inline-box;
     position: absolute;
 	}
-.anchor-lightbox-tribunal img {
-    top: 110px;
-	right:42%;
+.boton-anchor-tribunal img {
+    top: 82px;
+	right:41.5%;
 	}
-.anchor-lightbox-fiscalia img {
-    top: 230px;
+.boton-anchor-fiscalia img {
+    top: 200px;
 	right:68%;
 	}
-.anchor-lightbox-defensa img {
-    top: 320px;
+.boton-anchor-defensa img {
+    top: 260px;
 	right:18%;
 	}
-.anchor-lightbox-acusados img {
-    top: 390px;
-	right:42%;
+.boton-anchor-acusados img {
+    top: 320px;
+	right:41.5%;
 	}
-/* LIGHTBOX - VENTANA MODAL */	
-/* AÑADE ANIMACIÓN (Chrome, Safari, Opera) */
-@-webkit-keyframes example {
-  from {top:10px;opacity: 0;}
-  to {top:0px;opacity:1;}
+/* TOOLTIPS */
+/* ESTILO BASE DEL TOOLTIP */
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before, .tooltip:after { 
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 
+      opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    -moz-transition:    
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    transition:         
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+  border: solid 1px #ffffff;
 }
-/* AÑADE ANIMACIÓN (Standard syntax) */
-@keyframes example {
-  from {top:10px;opacity: 0;}
-  to {top:0px;opacity:1;}
+/* MUESTRA EL TOOLTIP ENTERO ON HOVER Y ON FOCUS */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }
-/* EL FONDO DEL LIGHTBOX */
-.modal {
-  display: none;
+/* ESTILO BASE DE LA FLECHA DIRECCIONAL DEL TOOLTIP */
+.tooltip:before,
+[data-tooltip]:before {
+  z-index: 1001;
+  border: 7px solid transparent;
+  background: transparent;
+  content: "";
+}
+/* ESTILO BASE DE ÁREA DE CONTENIDO DEL TOOLTIP */
+.tooltip:after,
+[data-tooltip]:after {
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.3); 
+  z-index: 1000;
+  padding: 8px;
+  width: 160px;
+  background-color: rgb(20, 20, 20, 0.8);
+  color: #333333;
+  content: attr(data-tooltip);
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight:500;
+  line-height: 18px;
+  text-transform:uppercase;
+}
+[data-tooltip]:before,
+.tooltip:before,
+.tooltip-top:before {
+  margin-top: 35px;
+  margin-left:-7px;
+  border-top-color: #ffffff;
+}
+[data-tooltip]:after,
+.tooltip:after,
+.tooltip-top:after {
+ margin-left: -80px;
+}
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip-top:hover:before,
+.tooltip-top:hover:after,
+.tooltip-top:focus:before,
+.tooltip-top:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px); 
+}
+/* POSICIONAMIENTO + COLOR FONDO TOOLTIPS  */
+.tooltip-1:before,
+.tooltip-1:after {
+	top: 52px;
+	left: 50.7%;
+}
+.tooltip-1:after {
+	background-color: rgb(179, 218, 213, 0.9);
+	}
+.tooltip-2:before,
+.tooltip-2:after {
+	top: 170px;
+	left: 24.2%;
+}
+.tooltip-2:after {
+	background-color: rgb(255, 178, 95, 0.9);
+	}
+.tooltip-3:before,
+.tooltip-3:after {
+	top: 230px;
+	left: 74.2%;
+}
+.tooltip-3:after {
+	background-color: rgb(126, 213, 255, 0.9);
+	}
+.tooltip-4:before,
+.tooltip-4:after {
+	top: 290px;
+	left: 50.7%;
+}
+.tooltip-4:after {
+	background-color: rgb(255, 157, 170, 0.9);
+	}	
+/* OVERLAY */
+.overlay {
   position: fixed;
-  left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index:1001;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index:2000;
 }
-/* MUESTRA EL LIGHTBOX "ON TARGET" */
-.modal:target {
-  display: table;
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
 }
-/* UBICACIÓN DEL LIGHTBOX */
-.modal-dialog {
-  display: table-cell;
-  vertical-align: top;
-  padding-top:180px;
-}
-/* CONTENEDOR DEL LIGHTBOX */
-.modal-container {
-  margin:0;
-  padding:0;
-}
-.modal-dialog .modal-content {
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 1);
-  position: relative;
+/* POPUPS */
+.popup {
+  margin: 175px auto 0 auto;
   padding: 0;
-  outline: 0;
-  border: 1px #777 solid;
-  text-align: justify;
-  width: 480px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-/* AÑADE ANIMACIÓN */
-  -webkit-animation-name: example; /* Chrome, Safari, Opera */
-  -webkit-animation-duration: 0.5s; /* Chrome, Safari, Opera */
-  animation-name: example;
-  animation-duration: 0.5s;
+  background: #ffffff;
+  border-radius: 5px;
+  overflow:hidden;
+  width: 410px;
+  position: relative;
+  transition: all 5s ease-in-out;
 }
-/* BOTÓN DE CIERRE DEL LIGHTBOX */
-a.closebtn {
+/* BOTÓN DE CIERRE DEL POPUP */
+.popup .boton-cierre-popup {
 	background-color:#333333;
 	height:39px;
 	width:39px;
@@ -675,10 +777,10 @@ a.closebtn {
 	right:10px;
 	top:14px;
 }
-a.closebtn:hover, a.closebtn:focus {
+.popup .boton-cierre-popup:hover, .popup .boton-cierre-popup:focus {
 	background-color:#000000;
 }
-a.closebtn:before {
+a.boton-cierre-popup:before {
 content: "";
 display: block;
 height: 26px;
@@ -692,7 +794,7 @@ top:7px;
 -o-transform:rotate(45deg);
 transform:rotate(45deg);
 }
-a.closebtn:after {
+.popup .boton-cierre-popup:after {
 content: "";
 display: block;
 height: 26px;
@@ -706,56 +808,61 @@ top:7px;
 -o-transform:rotate(-45deg);
 transform:rotate(-45deg);
 }
-/* CABEZAL DEL LIGHTBOX */
-header {
+/* CABECERA DEL POPUP */
+.popup .cabecera-popup {
   font-family: "Open Sans", sans-serif;
   color: #000000;
 }
-#tribunal-supremo header {
+#tribunal .cabecera-popup {
 	background-color: #b3dad5;
 	}
-#fiscalia header {
+#fiscalia .cabecera-popup {
 	background-color: #ffb25f;
 	}
-#defensa header {
+#defensa .cabecera-popup {
 	background-color: #7ed5ff;
 	}
-#acusados header {
+#acusados .cabecera-popup {
 	background-color: #ff9ca8;
 	}
-header .modal-title {
+.popup .cabecera-popup .titulo-popup {
   font-size: 30px;
+  font-weight:700;
   line-height:32px;
   padding:18px 50px;
   }
-/* PIE DEL LIGHTBOX */
+/* PIE DEL POPUP */
 footer {
   background-color: #eeeeee;
   font-family: "Open Sans", sans-serif;
   font-size:14px;
   line-height:18px;
+  padding:10px;
   text-transform:uppercase;
 }
-footer p {
-  padding:10px;
+/* CUERPO DEL POPUP */
+.popup .cuerpo-popup {
+  max-height: 30%;
+  overflow: auto;
 }
-/* SLIDESHOW */
+/* SLIDER DENTRO DEL POPUP */
 .slider {
-  height: 460px;
-  position: relative;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
+	color: #000000;
+	height: 460px;
+	position: relative;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row nowrap;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end;
-  -webkit-box-pack: center;
+	-webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -838,10 +945,11 @@ footer p {
   margin:0 0 18px 0;
 }
 .slider__caption {
+  color: #000000;
   font-family: "Open Sans", sans-serif;
   font-size:28px;
   line-height:30px;
-  font-weight: 500;
+  font-weight:500;
   margin: 25px 0 20px 0;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   /*text-transform: uppercase;*/
@@ -875,163 +983,50 @@ footer p {
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
-/* TOOLTIPS */
-/* ESTILO BASE DEL TOOLTIP */
-[data-tooltip]:before,
-[data-tooltip]:after,
-.tooltip:before, .tooltip:after { 
-  position: absolute;
-  visibility: hidden;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: 
-      opacity 0.2s ease-in-out,
-        visibility 0.2s ease-in-out,
-        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-    -moz-transition:    
-        opacity 0.2s ease-in-out,
-        visibility 0.2s ease-in-out,
-        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-    transition:         
-        opacity 0.2s ease-in-out,
-        visibility 0.2s ease-in-out,
-        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform:    translate3d(0, 0, 0);
-  transform:         translate3d(0, 0, 0);
-  pointer-events: none;
-  border: solid 1px #ffffff;
-}
-/* MUESTRA EL TOOLTIP ENTERO ON HOVER Y ON FOCUS */
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after,
-[data-tooltip]:focus:before,
-[data-tooltip]:focus:after,
-.tooltip:hover:before,
-.tooltip:hover:after,
-.tooltip:focus:before,
-.tooltip:focus:after {
-  visibility: visible;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-/* ESTILO BASE DE LA FLECHA DIRECCIONAL DEL TOOLTIP */
-.tooltip:before,
-[data-tooltip]:before {
-  z-index: 1001;
-  border: 7px solid transparent;
-  background: transparent;
-  content: "";
-}
-/* ESTILO BASE DE ÁREA DE CONTENIDO DEL TOOLTIP */
-.tooltip:after,
-[data-tooltip]:after {
-  box-shadow: 0px 2px 2px rgba(0,0,0,0.3); 
-  z-index: 1000;
-  padding: 8px;
-  width: 160px;
-  background-color: rgb(20, 20, 20, 0.8);
-  color: #333333;
-  content: attr(data-tooltip);
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  font-weight:500;
-  line-height: 18px;
-}
-[data-tooltip]:before,
-.tooltip:before,
-.tooltip-top:before {
-  margin-top: 35px;
-  border-top-color: #ffffff;
-}
-[data-tooltip]:after,
-.tooltip:after,
-.tooltip-top:after {
- margin-left: -80px;
-}
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after,
-[data-tooltip]:focus:before,
-[data-tooltip]:focus:after,
-.tooltip:hover:before,
-.tooltip:hover:after,
-.tooltip:focus:before,
-.tooltip:focus:after,
-.tooltip-top:hover:before,
-.tooltip-top:hover:after,
-.tooltip-top:focus:before,
-.tooltip-top:focus:after {
-  -webkit-transform: translateY(-12px);
-  -moz-transform:    translateY(-12px);
-  transform:         translateY(-12px); 
-}
-/* POSICIONAMIENTO + COLOR FONDO TOOLTIPS  */
-.tooltip-1:before,
-.tooltip-1:after {
-	top: 78px;
-	left: 49.3%;
-}
-.tooltip-1:after {
-	background-color: rgb(179, 218, 213, 0.9);
+/* MEDIA QUERIES */
+@media screen and (max-width: 650px){
+  .contenedor-caja {
+	height:850px;
 	}
-.tooltip-2:before,
-.tooltip-2:after {
-	top: 198px;
-	left: 23.2%;
 }
-.tooltip-2:after {
-	background-color: rgb(255, 178, 95, 0.9);
+@media screen and (max-width: 540px){
+  .contenedor-caja {
+	height:890px;
 	}
-.tooltip-3:before,
-.tooltip-3:after {
-	top: 288px;
-	left: 73.2%;
 }
-.tooltip-3:after {
-	background-color: rgb(126, 213, 255, 0.9);
-	}
-.tooltip-4:before,
-.tooltip-4:after {
-	top: 358px;
-	left: 49.3%;
-}
-.tooltip-4:after {
-	background-color: rgb(255, 157, 170, 0.9);
-	}
+
 </style>
 <!-- CONTENEDOR -->
-<div class="caja">
+<div class="contenedor-caja">
+<!-- CABECERA -->
 	<div class="cabecera">
+		<a class="anchor-invisible" href="" id="popup-cerrado"></a>
 		<h1 class="titulo-cabecera">As&iacute; se distribuyen los asientos en la sala que juzga el 1-O</h1>
 		<span class="instrucciones-cabecera">Haz clic sobre cada miniatura para acceder a la informaci&oacute;n</span>
 	</div>
-<!-- CUERPO -->	
+<!-- CUERPO -->
 	<div class="cuerpo">
-<!-- ANCHORS + TOOLTIPS -->
-		<a class="anchor-lightbox-tribunal tooltip tooltip-1" href="#tribunal-supremo" data-tooltip="TRIBUNAL SUPREMO">
+		<!--ANCHORS -->
+		<a class="boton-anchor-tribunal tooltip tooltip-1" href="#tribunal" id="popup-1" data-tooltip="Tribunal supremo">
 			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-1.png"/>
 		</a>
-		<a class="anchor-lightbox-fiscalia tooltip tooltip-2" href="#fiscalia" data-tooltip="FISCALÍA">
+		<a class="boton-anchor-fiscalia tooltip tooltip-2" href="#fiscalia" id="popup-2" data-tooltip="Fiscalía">
 			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-2.png"/>
 		</a>
-		<a class="anchor-lightbox-defensa tooltip tooltip-3" href="#defensa" data-tooltip="DEFENSA">
+		<a class="boton-anchor-defensa tooltip tooltip-3" href="#defensa" id="popup-3" data-tooltip="Defensa">
 			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-3.png"/>
 		</a>
-		<a class="anchor-lightbox-acusados tooltip tooltip-4" href="#acusados" data-tooltip="ACUSADOS">
+		<a class="boton-anchor-acusados tooltip tooltip-4" href="#acusados" id="popup-4" data-tooltip="Acusados">
 			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-4.png"/>
 		</a>
-<!--LIGHTBOX TRIBUNAL-->
-		<div id="tribunal-supremo" class="modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<header class="modal-container">
-						<a class="closebtn" href="#"></a>
-						<h2 class="modal-title">El Tribunal supremo</h2>
-					</header>
-					<div class="modal-container">
-		<!--LIGHTBOX -->					
+		<!-- POPUPS -->
+		<div id="tribunal" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Tribunal supremo</h2>
+					<a class="boton-cierre-popup" href="#popup-cerrado"></a>
+				</div>
+				<div class="cuerpo-popup">
 				<div class="slider">
 					<input type="radio" name="slider" title="Manuel Marchena" checked="checked" class="slider__nav"/>
 					<input type="radio" name="slider" title="Andr&eacute;s Mart&iacute;nez Arrieta" class="slider__nav"/>
@@ -1059,25 +1054,19 @@ footer p {
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>						
-					</div>
-					<!--<footer class="modal-container">
-						<p>Modal footer</p>
-					</footer>-->
+				</div>
+				</div>
+				<div class="pie-popup">
 				</div>
 			</div>
 		</div>
-		<!-- FIN LIGHTBOX-->
-<!--LIGHTBOX FISCAlÍA-->
-		<div id="fiscalia" class="modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<header class="modal-container">
-						<a class="closebtn" href="#"></a>
-						<h2 class="modal-title">Fiscalía</h2>
-					</header>
-					<div class="modal-container">
-		<!--LIGHTBOX -->					
+		<div id="fiscalia" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Fiscalía</h2>
+					<a class="boton-cierre-popup" href="#popup-cerrado"></a>
+				</div>
+				<div class="cuerpo-popup">
 				<div class="slider">
 					<input type="radio" name="slider" title="Manuel Marchena" checked="checked" class="slider__nav"/>
 					<input type="radio" name="slider" title="Andr&eacute;s Mart&iacute;nez Arrieta" class="slider__nav"/>
@@ -1105,25 +1094,19 @@ footer p {
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>						
-					</div>
-					<!--<footer class="modal-container">
-						<p>Modal footer</p>
-					</footer>-->
+				</div>
+				</div>
+				<div class="pie-popup">
 				</div>
 			</div>
 		</div>
-		<!-- FIN LIGHTBOX-->
-<!--LIGHTBOX DEFENSA-->
-		<div id="defensa" class="modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<header class="modal-container">
-						<a class="closebtn" href="#"></a>
-						<h2 class="modal-title">Defensa</h2>
-					</header>
-					<div class="modal-container">
-		<!--LIGHTBOX -->					
+		<div id="defensa" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Defensa</h2>
+					<a class="boton-cierre-popup" href="#popup-cerrado"></a>
+				</div>
+				<div class="cuerpo-popup">
 				<div class="slider">
 					<input type="radio" name="slider" title="Manuel Marchena" checked="checked" class="slider__nav"/>
 					<input type="radio" name="slider" title="Andr&eacute;s Mart&iacute;nez Arrieta" class="slider__nav"/>
@@ -1151,25 +1134,19 @@ footer p {
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>						
-					</div>
-					<!--<footer class="modal-container">
-						<p>Modal footer</p>
-					</footer>-->
+				</div>
+				</div>
+				<div class="pie-popup">
 				</div>
 			</div>
 		</div>
-		<!-- FIN LIGHTBOX-->
-<!--LIGHTBOX ACUSADOS-->
-		<div id="acusados" class="modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<header class="modal-container">
-						<a class="closebtn" href="#"></a>
-						<h2 class="modal-title">Acusados</h2>
-					</header>
-					<div class="modal-container">
-		<!--LIGHTBOX -->					
+		<div id="acusados" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Acusados</h2>
+					<a class="boton-cierre-popup" href="#popup-cerrado"></a>
+				</div>
+				<div class="cuerpo-popup">
 				<div class="slider">
 					<input type="radio" name="slider" title="Manuel Marchena" checked="checked" class="slider__nav"/>
 					<input type="radio" name="slider" title="Andr&eacute;s Mart&iacute;nez Arrieta" class="slider__nav"/>
@@ -1197,25 +1174,21 @@ footer p {
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>						
-					</div>
-					<!--<footer class="modal-container">
-						<p>Modal footer</p>
-					</footer>-->
+				</div>
+				</div>
+				<div class="pie-popup">
 				</div>
 			</div>
 		</div>
-		<!-- FIN LIGHTBOX-->
 	</div>
+<!-- PIE -->
 <div class="pie">
 		<img class="logo" src="https://lostsightsblog.files.wordpress.com/2019/03/logo-lv-131x20.png" title="La Vanguardia" alt="La Vanguardia" />
 		<span class="">Fuente: Producción propia.</span>
 </div>
+</div>
 
-
-
-
-<!-- FIN CAJA HTML-->
+<!-- FIN CAJA -->
 
 	<p class="p">Y hay más: la votación del <b>1-O</b> es el resultado de unas leyes catalanas, declaradas inconstitucionales, que situaban el referéndum como paso previo para la declaración de independencia. –¿Violentar la ley es violencia?– El Tribunal deberá dirimir si estos actos, en caso de ser violentos, respondían al objetivo de lograr la independencia o si por el contrario fueron hechos puntuales que no pueden encuadrarse en el objetivo de lograr la separación de Catalunya del resto del país.</p>
 <span class="despiece-story">

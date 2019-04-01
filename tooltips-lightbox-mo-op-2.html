@@ -1,5 +1,6 @@
 <html>
 <style>
+/* GENERAL */
 * {
 margin: 0;
 padding: 0;
@@ -20,50 +21,87 @@ text-align: center;
 	padding:20px 10px 0 10px;
 }
 .contenedor .cabecera .titulo-cabecera {
+	border-bottom:solid 1px #666666;
 	font-family: "TiemposHeadline-Medium",serif;
-	font-size:30px;
-	line-height:32px;
-	margin:0 0 10px 0;
+	font-size:36px;
+	line-height:38px;
+	padding:0 0 15px 0;
 }
 .contenedor .cabecera .instrucciones-cabecera {
+	display:inline-block;
 	font-family: "Open Sans", sans-serif;
-	font-size:14px;
-	line-height:18px;
+	font-size:18px;
+	line-height:22px;
+	padding:10px 0;
 	text-transform:uppercase;
 }
 /* CUERPO */
 .contenedor .cuerpo {
-  background-image: url("https://lostsightsblog.files.wordpress.com/2019/03/sala-fondo-1.png");
-  background-color: #343434;
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  height: 1120px;
-  width:100%;
+	background-image: url("https://lostsightsblog.files.wordpress.com/2019/04/sala-fondo-480x700.png");
+	background-color: #343434;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-bottom:solid 1px #666666;
+	height:700px;
+	width:480px;
+	margin:0 auto 15px auto;
+	position:relative;
+	text-align:center;
   }
 /* PIE */
-
-
+.pie {
+	display:inline-block;
+	font-family: "Open Sans", sans-serif;
+	font-size:14px;
+	line-height:18px;
+	padding:0 0 20px 0;
+	vertical-align:top;
+	text-align:center;
+}
+.pie .logo {
+  display:block;
+  margin:0 auto;
+  padding: 0 0 7px 0;
+}
 /* ANCHORS */
-a.anchor-lightbox img {
-    height: 40px;
-    border: 2px solid white;
+.anchor-lightbox-tribunal img, .anchor-lightbox-fiscalia img, .anchor-lightbox-defensa img, .anchor-lightbox-acusados img {
+    width: 64px;
+	height:64px;
+    border: 3px solid white;
 	border-radius:100px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,.4);
-    margin: 130px 0 0 5px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
+    display: -webkit-inline-box;
+    position: absolute;
 	}
-/* LIGHTBOX */	
-/* Add animation (Chrome, Safari, Opera) */
+.anchor-lightbox-tribunal img {
+    top: 110px;
+	right:42%;
+	}
+.anchor-lightbox-fiscalia img {
+    top: 230px;
+	right:68%;
+	}
+.anchor-lightbox-defensa img {
+    top: 320px;
+	right:18%;
+	}
+.anchor-lightbox-acusados img {
+    top: 390px;
+	right:42%;
+	}
+/* LIGHTBOX - VENTANA MODAL */	
+/* AÑADE ANIMACIÓN (Chrome, Safari, Opera) */
 @-webkit-keyframes example {
   from {top:10px;opacity: 0;}
   to {top:0px;opacity:1;}
 }
-/* Add animation (Standard syntax) */
+/* AÑADE ANIMACIÓN (Standard syntax) */
 @keyframes example {
   from {top:10px;opacity: 0;}
   to {top:0px;opacity:1;}
 }
-/* The modal's background */
+/* EL FONDO DEL LIGHTBOX */
 .modal {
   display: none;
   position: fixed;
@@ -75,18 +113,22 @@ a.anchor-lightbox img {
   /*background-color: rgb(0, 0, 0);*/
   background-color: rgba(0, 0, 0, 0.4);
 }
-/* Display the modal when targeted */
+/* MUESTRA EL LIGHTBOX "ON TARGET" */
 .modal:target {
   display: table;
   /*position: absolute;*/
 }
-/* The modal box */
+/* UBICACIÓN DEL LIGHTBOX */
 .modal-dialog {
   display: table-cell;
   vertical-align: top;
-  padding-top:200px;
+  padding-top:180px;
 }
-/* The modal's content */
+/* CONTENEDOR DEL LIGHTBOX */
+.modal-container {
+  margin:0;
+  padding:0;
+}
 .modal-dialog .modal-content {
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 1);
@@ -97,24 +139,24 @@ a.anchor-lightbox img {
   text-align: justify;
   width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-/* Add animation */
+/* AÑADE ANIMACIÓN */
   -webkit-animation-name: example; /* Chrome, Safari, Opera */
   -webkit-animation-duration: 0.5s; /* Chrome, Safari, Opera */
   animation-name: example;
   animation-duration: 0.5s;
 }
-/* The button used to close the modal */
+/* BOTÓN DE CIERRE DEL LIGHTBOX */
 a.closebtn {
-	background-color:#666666;
-	height:31px;
-	width:31px;
+	background-color:#333333;
+	height:39px;
+	width:39px;
 	border-radius:30px;
 	position: absolute;
-	right: 15px;
-	top:15px;
+	right:10px;
+	top:14px;
 }
 a.closebtn:hover, a.closebtn:focus {
-	background-color:#333333;
+	background-color:#000000;
 }
 a.closebtn:before {
 content: "";
@@ -123,8 +165,8 @@ height: 26px;
 width: 3px;
 background: #ffffff;
 position: absolute;
-right: 14px;
-top:3px;
+right: 18px;
+top:7px;
 -webkit-transform:rotate(45deg);
 -moz-transform:rotate(45deg);
 -o-transform:rotate(45deg);
@@ -137,27 +179,36 @@ height: 26px;
 width: 3px;
 background: #ffffff;
 position: absolute;
-right: 14px;
-top:3px;
+right: 18px;
+top:7px;
 -webkit-transform:rotate(-45deg);
 -moz-transform:rotate(-45deg);
 -o-transform:rotate(-45deg);
 transform:rotate(-45deg);
 }
-.modal-container {
-  margin:0;
-  padding:0;
-}
+/* CABEZAL DEL LIGHTBOX */
 header {
-  background-color: #b3dad5;
   font-family: "Open Sans", sans-serif;
-  color: #333333;
+  color: #000000;
 }
+#tribunal-supremo header {
+	background-color: #b3dad5;
+	}
+#fiscalia header {
+	background-color: #ffb25f;
+	}
+#defensa header {
+	background-color: #7ed5ff;
+	}
+#acusados header {
+	background-color: #ff9ca8;
+	}
 header .modal-title {
-  font-size: 22px;
-  line-height:24px;
-  padding:18px 20px;
+  font-size: 30px;
+  line-height:32px;
+  padding:18px 50px;
   }
+/* PIE DEL LIGHTBOX */
 footer {
   background-color: #eeeeee;
   font-family: "Open Sans", sans-serif;
@@ -168,9 +219,9 @@ footer {
 footer p {
   padding:10px;
 }
-/* ESTILOS SLIDESHOW */
+/* SLIDESHOW */
 .slider {
-  height: 400px;
+  height: 460px;
   position: relative;
   overflow: hidden;
   display: -webkit-box;
@@ -192,8 +243,8 @@ footer p {
 .slider__nav {
   width: 12px;
   height: 12px;
-  margin: 20px 10px;
-  border-radius: 50%;
+  margin: 60px 30px 50px 30px;
+  border-radius: 100%;
   z-index: 10;
   outline: 6px solid #ccc;
   outline-offset: -6px;
@@ -268,10 +319,10 @@ footer p {
 }
 .slider__caption {
   font-family: "Open Sans", sans-serif;
-  font-size:24px;
-  line-height:26px;
+  font-size:28px;
+  line-height:30px;
   font-weight: 500;
-  margin: 25px 0 15px 0;
+  margin: 25px 0 20px 0;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   /*text-transform: uppercase;*/
 }
@@ -279,11 +330,11 @@ footer p {
   color: #666666;
   max-width: 240px;
   font-family: "Open Sans", sans-serif;
-  font-size:16px;
-  line-height:18px;
+  font-size:20px;
+  line-height:22px;
+  margin: 0 0 10px 0;
   text-transform:uppercase;
 }
-
 @-webkit-keyframes check {
   50% {
     outline-color: #333;
@@ -294,7 +345,6 @@ footer p {
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
-
 @keyframes check {
   50% {
     outline-color: #333;
@@ -305,6 +355,131 @@ footer p {
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
+/* TOOLTIPS */
+/* ESTILO BASE DEL TOOLTIP */
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before, .tooltip:after { 
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 
+      opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    -moz-transition:    
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    transition:         
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+  border: solid 1px #ffffff;
+}
+/* MUESTRA EL TOOLTIP ENTERO ON HOVER Y ON FOCUS */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+/* ESTILO BASE DE LA FLECHA DIRECCIONAL DEL TOOLTIP */
+.tooltip:before,
+[data-tooltip]:before {
+  z-index: 1001;
+  border: 7px solid transparent;
+  background: transparent;
+  content: "";
+}
+/* ESTILO BASE DE ÁREA DE CONTENIDO DEL TOOLTIP */
+.tooltip:after,
+[data-tooltip]:after {
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.3); 
+  z-index: 1000;
+  padding: 8px;
+  width: 160px;
+  background-color: rgb(20, 20, 20, 0.8);
+  color: #333333;
+  content: attr(data-tooltip);
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight:500;
+  line-height: 18px;
+}
+[data-tooltip]:before,
+.tooltip:before,
+.tooltip-top:before {
+  margin-top: 35px;
+  border-top-color: #ffffff;
+}
+[data-tooltip]:after,
+.tooltip:after,
+.tooltip-top:after {
+ margin-left: -80px;
+}
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip-top:hover:before,
+.tooltip-top:hover:after,
+.tooltip-top:focus:before,
+.tooltip-top:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px); 
+}
+/* POSICIONAMIENTO + COLOR FONDO TOOLTIPS  */
+.tooltip-1:before,
+.tooltip-1:after {
+	top: 78px;
+	left: 49.3%;
+}
+.tooltip-1:after {
+	background-color: rgb(179, 218, 213, 0.9);
+	}
+.tooltip-2:before,
+.tooltip-2:after {
+	top: 198px;
+	left: 23.2%;
+}
+.tooltip-2:after {
+	background-color: rgb(255, 178, 95, 0.9);
+	}
+.tooltip-3:before,
+.tooltip-3:after {
+	top: 288px;
+	left: 73.2%;
+}
+.tooltip-3:after {
+	background-color: rgb(126, 213, 255, 0.9);
+	}
+.tooltip-4:before,
+.tooltip-4:after {
+	top: 358px;
+	left: 49.3%;
+}
+.tooltip-4:after {
+	background-color: rgb(255, 157, 170, 0.9);
+	}
 </style>
 <!-- CONTENEDOR -->
 <div class="contenedor">
@@ -314,26 +489,34 @@ footer p {
 	</div>
 <!-- CUERPO -->	
 	<div class="cuerpo">
-<!-- ANCHOR -->
-		<a class="anchor-lightbox" href="#tribunal-supremo">
-			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica.png"/>
+<!-- ANCHORS + TOOLTIPS -->
+		<a class="anchor-lightbox-tribunal tooltip tooltip-1" href="#tribunal-supremo" data-tooltip="TRIBUNAL SUPREMO">
+			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-1.png"/>
 		</a>
-<!--LIGHTBOX-->
+		<a class="anchor-lightbox-fiscalia tooltip tooltip-2" href="#fiscalia" data-tooltip="FISCALÍA">
+			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-2.png"/>
+		</a>
+		<a class="anchor-lightbox-defensa tooltip tooltip-3" href="#defensa" data-tooltip="DEFENSA">
+			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-3.png"/>
+		</a>
+		<a class="anchor-lightbox-acusados tooltip tooltip-4" href="#acusados" data-tooltip="ACUSADOS">
+			<img src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-4.png"/>
+		</a>
+<!--LIGHTBOX TRIBUNAL-->
 		<div id="tribunal-supremo" class="modal">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<header class="modal-container">
 						<a class="closebtn" href="#"></a>
-						<!--<a href="#" class="closebtn">&#88;</a>-->
 						<h2 class="modal-title">El Tribunal supremo</h2>
 					</header>
 					<div class="modal-container">
-		<!--LIGHTBOX-->					
+		<!--LIGHTBOX -->					
 				<div class="slider">
-					<input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
-					<input type="radio" name="slider" title="slide2" class="slider__nav"/>
-					<input type="radio" name="slider" title="slide3" class="slider__nav"/>
-					<input type="radio" name="slider" title="slide4" class="slider__nav"/>
+					<input type="radio" name="slider" title="Manuel Marchena" checked="checked" class="slider__nav"/>
+					<input type="radio" name="slider" title="Andr&eacute;s Mart&iacute;nez Arrieta" class="slider__nav"/>
+					<input type="radio" name="slider" title="Andr&eacute;s Palomo" class="slider__nav"/>
+					<input type="radio" name="slider" title="Juan Ram&oacute;n Berdugo" class="slider__nav"/>
 				<div class="slider__inner">
 					<div class="slider__contents">
 						<h2 class="slider__caption">Manuel<br>Marchena</h2>
@@ -356,8 +539,7 @@ footer p {
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>
-		<!-- FIN LIGHTBOX-->						
+				</div>						
 					</div>
 					<!--<footer class="modal-container">
 						<p>Modal footer</p>
@@ -365,9 +547,148 @@ footer p {
 				</div>
 			</div>
 		</div>
+		<!-- FIN LIGHTBOX-->
+<!--LIGHTBOX FISCAlÍA-->
+		<div id="fiscalia" class="modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<header class="modal-container">
+						<a class="closebtn" href="#"></a>
+						<h2 class="modal-title">Fiscalía</h2>
+					</header>
+					<div class="modal-container">
+		<!--LIGHTBOX -->					
+				<div class="slider">
+					<input type="radio" name="slider" title="Manuel Marchena" checked="checked" class="slider__nav"/>
+					<input type="radio" name="slider" title="Andr&eacute;s Mart&iacute;nez Arrieta" class="slider__nav"/>
+					<input type="radio" name="slider" title="Andr&eacute;s Palomo" class="slider__nav"/>
+					<input type="radio" name="slider" title="Juan Ram&oacute;n Berdugo" class="slider__nav"/>
+				<div class="slider__inner">
+					<div class="slider__contents">
+						<h2 class="slider__caption">Manuel<br>Marchena</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-2.png"/>
+						<p class="slider__txt">Presidente de la Sala Penal</p>
+					</div>
+					<div class="slider__contents">
+						<h2 class="slider__caption">Andr&eacute;s<br>Mart&iacute;nez Arrieta</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-2.png"/>
+						<p class="slider__txt">Magistrado</p>
+					</div>
+					<div class="slider__contents">
+						<h2 class="slider__caption">Andr&eacute;s<br>Palomo</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-2.png"/>
+						<p class="slider__txt">Magistrado de la Sala II</p>
+					</div>
+					<div class="slider__contents">
+							<h2 class="slider__caption">Juan Ram&oacute;n<br>Berdugo</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-2.png"/>
+						<p class="slider__txt">Magistrado</p>
+					</div>
+					</div>
+				</div>						
+					</div>
+					<!--<footer class="modal-container">
+						<p>Modal footer</p>
+					</footer>-->
+				</div>
+			</div>
+		</div>
+		<!-- FIN LIGHTBOX-->
+<!--LIGHTBOX DEFENSA-->
+		<div id="defensa" class="modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<header class="modal-container">
+						<a class="closebtn" href="#"></a>
+						<h2 class="modal-title">Defensa</h2>
+					</header>
+					<div class="modal-container">
+		<!--LIGHTBOX -->					
+				<div class="slider">
+					<input type="radio" name="slider" title="Manuel Marchena" checked="checked" class="slider__nav"/>
+					<input type="radio" name="slider" title="Andr&eacute;s Mart&iacute;nez Arrieta" class="slider__nav"/>
+					<input type="radio" name="slider" title="Andr&eacute;s Palomo" class="slider__nav"/>
+					<input type="radio" name="slider" title="Juan Ram&oacute;n Berdugo" class="slider__nav"/>
+				<div class="slider__inner">
+					<div class="slider__contents">
+						<h2 class="slider__caption">Manuel<br>Marchena</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-3.png"/>
+						<p class="slider__txt">Presidente de la Sala Penal</p>
+					</div>
+					<div class="slider__contents">
+						<h2 class="slider__caption">Andr&eacute;s<br>Mart&iacute;nez Arrieta</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-3.png"/>
+						<p class="slider__txt">Magistrado</p>
+					</div>
+					<div class="slider__contents">
+						<h2 class="slider__caption">Andr&eacute;s<br>Palomo</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-3.png"/>
+						<p class="slider__txt">Magistrado de la Sala II</p>
+					</div>
+					<div class="slider__contents">
+							<h2 class="slider__caption">Juan Ram&oacute;n<br>Berdugo</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-3.png"/>
+						<p class="slider__txt">Magistrado</p>
+					</div>
+					</div>
+				</div>						
+					</div>
+					<!--<footer class="modal-container">
+						<p>Modal footer</p>
+					</footer>-->
+				</div>
+			</div>
+		</div>
+		<!-- FIN LIGHTBOX-->
+<!--LIGHTBOX ACUSADOS-->
+		<div id="acusados" class="modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<header class="modal-container">
+						<a class="closebtn" href="#"></a>
+						<h2 class="modal-title">Acusados</h2>
+					</header>
+					<div class="modal-container">
+		<!--LIGHTBOX -->					
+				<div class="slider">
+					<input type="radio" name="slider" title="Manuel Marchena" checked="checked" class="slider__nav"/>
+					<input type="radio" name="slider" title="Andr&eacute;s Mart&iacute;nez Arrieta" class="slider__nav"/>
+					<input type="radio" name="slider" title="Andr&eacute;s Palomo" class="slider__nav"/>
+					<input type="radio" name="slider" title="Juan Ram&oacute;n Berdugo" class="slider__nav"/>
+				<div class="slider__inner">
+					<div class="slider__contents">
+						<h2 class="slider__caption">Manuel<br>Marchena</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-4.png"/>
+						<p class="slider__txt">Presidente de la Sala Penal</p>
+					</div>
+					<div class="slider__contents">
+						<h2 class="slider__caption">Andr&eacute;s<br>Mart&iacute;nez Arrieta</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-4.png"/>
+						<p class="slider__txt">Magistrado</p>
+					</div>
+					<div class="slider__contents">
+						<h2 class="slider__caption">Andr&eacute;s<br>Palomo</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-4.png"/>
+						<p class="slider__txt">Magistrado de la Sala II</p>
+					</div>
+					<div class="slider__contents">
+							<h2 class="slider__caption">Juan Ram&oacute;n<br>Berdugo</h2>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-4.png"/>
+						<p class="slider__txt">Magistrado</p>
+					</div>
+					</div>
+				</div>						
+					</div>
+					<!--<footer class="modal-container">
+						<p>Modal footer</p>
+					</footer>-->
+				</div>
+			</div>
+		</div>
+		<!-- FIN LIGHTBOX-->
 	</div>
 <div class="pie">
 		<img class="logo" src="https://lostsightsblog.files.wordpress.com/2019/03/logo-lv-131x20.png" title="La Vanguardia" alt="La Vanguardia" />
-		<span class="">Fuente: Lorem ipsum dolor sit amet consectetur 2019.</span>
+		<span class="">Fuente: Producción propia.</span>
 </div>
 </html>

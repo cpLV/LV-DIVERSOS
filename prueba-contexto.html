@@ -763,7 +763,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   background: #ffffff;
   border-radius: 5px;
   overflow:hidden;
-  width: 410px;
+  width: 320px;
   position: relative;
   transition: all 5s ease-in-out;
 }
@@ -845,24 +845,23 @@ footer {
   max-height: 30%;
   overflow: auto;
 }
-/* SLIDER DENTRO DEL POPUP */
+/* SLIDER */
 .slider {
-	color: #000000;
-	height: 460px;
-	position: relative;
-	overflow: hidden;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-flow: row nowrap;
+  height: 460px;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-	-webkit-box-align: end;
-	-webkit-align-items: flex-end;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
       -ms-flex-align: end;
           align-items: flex-end;
-	-webkit-box-pack: center;
+  -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -945,11 +944,10 @@ footer {
   margin:0 0 18px 0;
 }
 .slider__caption {
-  color: #000000;
   font-family: "Open Sans", sans-serif;
   font-size:28px;
   line-height:30px;
-  font-weight:500;
+  font-weight: 500;
   margin: 25px 0 20px 0;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   /*text-transform: uppercase;*/
@@ -983,6 +981,7 @@ footer {
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
+
 /* MEDIA QUERIES */
 @media screen and (max-width: 650px){
   .contenedor-caja {
@@ -994,13 +993,49 @@ footer {
 	height:890px;
 	}
 }
+@media screen and (max-width: 425px){
+  .contenedor-caja {
+	height:780px;
+	}
+.contenedor-caja .cuerpo {
+	height:490px;
+	width:320px;
+  }
+}
+@media screen and (max-width: 375px){
+  .contenedor-caja {
+	height:780px;
+	}
+.contenedor-caja .cuerpo {
+	height:490px;
+	width:320px;
+  }
+}
+@media screen and (max-width: 360px){
+  .contenedor-caja {
+	height:780px;
+	}
+.contenedor-caja .cuerpo {
+	height:450px;
+	width:280px;
+  }
+}
+@media screen and (max-width: 350px){
+  .contenedor-caja {
+	height:840px;
+	}
+.contenedor-caja .cuerpo {
+	height:450px;
+	width:280px;
+  }
+}
 
 </style>
 <!-- CONTENEDOR -->
 <div class="contenedor-caja">
 <!-- CABECERA -->
 	<div class="cabecera">
-		<a class="anchor-invisible" href="" id="popup-cerrado"></a>
+		<a class="anchor-invisible" href="" id="la-sala-del-juiciodel-1-O"></a>
 		<h1 class="titulo-cabecera">As&iacute; se distribuyen los asientos en la sala que juzga el 1-O</h1>
 		<span class="instrucciones-cabecera">Haz clic sobre cada miniatura para acceder a la informaci&oacute;n</span>
 	</div>
@@ -1024,7 +1059,7 @@ footer {
 			<div class="popup">
 				<div class="cabecera-popup">
 					<h2 class="titulo-popup">Tribunal supremo</h2>
-					<a class="boton-cierre-popup" href="#popup-cerrado"></a>
+					<a class="boton-cierre-popup" href="#la-sala-del-juicio-del-1-O"></a>
 				</div>
 				<div class="cuerpo-popup">
 				<div class="slider">
@@ -1035,26 +1070,26 @@ footer {
 				<div class="slider__inner">
 					<div class="slider__contents">
 						<h2 class="slider__caption">Manuel<br>Marchena</h2>
-						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica.png"/>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-1.png"/>
 						<p class="slider__txt">Presidente de la Sala Penal</p>
 					</div>
 					<div class="slider__contents">
 						<h2 class="slider__caption">Andr&eacute;s<br>Mart&iacute;nez Arrieta</h2>
-						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica.png"/>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-1.png"/>
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					<div class="slider__contents">
 						<h2 class="slider__caption">Andr&eacute;s<br>Palomo</h2>
-						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica.png"/>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-1.png"/>
 						<p class="slider__txt">Magistrado de la Sala II</p>
 					</div>
 					<div class="slider__contents">
 							<h2 class="slider__caption">Juan Ram&oacute;n<br>Berdugo</h2>
-						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica.png"/>
+						<img class="slider__image" src="https://lostsightsblog.files.wordpress.com/2019/03/persona-generica-1.png"/>
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>
+				</div>	
 				</div>
 				<div class="pie-popup">
 				</div>
@@ -1064,7 +1099,7 @@ footer {
 			<div class="popup">
 				<div class="cabecera-popup">
 					<h2 class="titulo-popup">Fiscalía</h2>
-					<a class="boton-cierre-popup" href="#popup-cerrado"></a>
+					<a class="boton-cierre-popup" href="#la-sala-del-juicio-del-1-O"></a>
 				</div>
 				<div class="cuerpo-popup">
 				<div class="slider">
@@ -1094,7 +1129,7 @@ footer {
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>
+				</div>	
 				</div>
 				<div class="pie-popup">
 				</div>
@@ -1104,7 +1139,7 @@ footer {
 			<div class="popup">
 				<div class="cabecera-popup">
 					<h2 class="titulo-popup">Defensa</h2>
-					<a class="boton-cierre-popup" href="#popup-cerrado"></a>
+					<a class="boton-cierre-popup" href="#la-sala-del-juicio-del-1-O"></a>
 				</div>
 				<div class="cuerpo-popup">
 				<div class="slider">
@@ -1134,7 +1169,7 @@ footer {
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>
+				</div>	
 				</div>
 				<div class="pie-popup">
 				</div>
@@ -1144,7 +1179,7 @@ footer {
 			<div class="popup">
 				<div class="cabecera-popup">
 					<h2 class="titulo-popup">Acusados</h2>
-					<a class="boton-cierre-popup" href="#popup-cerrado"></a>
+					<a class="boton-cierre-popup" href="#la-sala-del-juiciodel-1-O"></a>
 				</div>
 				<div class="cuerpo-popup">
 				<div class="slider">
@@ -1174,7 +1209,7 @@ footer {
 						<p class="slider__txt">Magistrado</p>
 					</div>
 					</div>
-				</div>
+				</div>	
 				</div>
 				<div class="pie-popup">
 				</div>

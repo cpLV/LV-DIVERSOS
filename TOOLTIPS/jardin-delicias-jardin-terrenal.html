@@ -1,0 +1,1080 @@
+<!-- CAJA TOOLTIPS + LIGHTBOX + SLIDER -->
+
+<!-- SCRIPT IFRAME RESPONSIVE -->
+<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+
+<!-- ESTILOS -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+<style>
+/* CONTENEDOR + CUERPO + PIE */
+.contenedor-caja {
+	background-color: #343434;
+	color:#ffffff;
+	height:700px;
+	margin:0 auto 30px auto;
+	overflow:hidden;
+    padding:0;
+	text-align:center;
+	vertical-align:top;
+	width:100%;
+}
+.contenedor-caja .cabecera, .pie {
+	color:#ffffff;
+	margin:0 auto;
+	padding:0 10px;
+}
+.contenedor-caja .cabecera .titulo-cabecera {
+	border-bottom:solid 1px #666666;
+	font-family: "TiemposHeadline-Medium",serif;
+	font-size:30px;
+	line-height:32px;
+    margin: 0 auto;
+	padding:12px 10px 13px 10px;
+}
+.contenedor-caja .cabecera .instrucciones-cabecera {
+	display:inline-block;
+	font-family: "Open Sans Regular", sans-serif;
+	font-size:16px;
+	line-height:24px;
+    margin:0 auto;
+	padding:15px 5px 10px 5px;
+	text-transform:uppercase;
+}
+.contenedor-caja .cuerpo {
+	background-image: url("https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/jardin-delicias-centro-fondo-480x540.jpg");
+	background-color: #343434;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-bottom:solid 1px #666666;
+	height:461px;
+	width:410px;
+	margin:0 auto 15px auto;
+	position:relative;
+	text-align:center;
+  }
+.contenedor-caja .pie {
+	display:inline-block;
+	font-family: "Open Sans Regular", sans-serif;
+	font-size:14px;
+	line-height:18px;
+	padding:0 0 20px 0;
+	vertical-align:top;
+	text-align:center;
+}
+.contenedor-caja .pie .logo {
+	border: solid 1px #999999;
+	display:block;
+	margin:0 auto 7px auto;
+	padding:0;
+}
+/* BOTONES ANCHORS */
+.boton-anchor-detalle-1 span, .boton-anchor-detalle-2 span, .boton-anchor-detalle-3 span, .boton-anchor-detalle-4 span, .boton-anchor-detalle-5 span, .boton-anchor-detalle-6 span, .boton-anchor-detalle-7 span, .boton-anchor-detalle-8 span {
+	width: 40px;
+    height: 30px;
+    border: 3px solid white;
+    border-radius: 100px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.7);
+    position: absolute;
+    color: #ffffff;
+    font-family: "Open Sans Bold", sans-serif;
+    font-size: 30px;
+    line-height: 22px;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+    text-align: -webkit-center;
+	background-color: rgb(20, 20, 20, 0.5);
+	
+    text-align: -webkit-center;
+	}
+.boton-anchor-detalle-1 span {
+    top: 50px;
+	right:65.5%;
+	}
+.boton-anchor-detalle-2 span {
+    top: 140px;
+	right:65%;
+	}
+.boton-anchor-detalle-3 span {
+    top: 170px;
+	right:44%;
+	}
+.boton-anchor-detalle-4 span {
+    top: 350px;
+	right:10.5%;
+	}
+.boton-anchor-detalle-5 span {
+    top: 103px;
+	right:43.0%;
+	}
+.boton-anchor-detalle-6 span {
+    top: 375px;
+	right:1.0%;
+	}
+.boton-anchor-detalle-7 span {
+    top: 282px;
+	right:80.0%;
+	}
+.boton-anchor-detalle-8 span {
+    top: 225px;
+	right:8.0%;
+	}
+/* TOOLTIPS */
+/* ESTILO BASE DEL TOOLTIP */
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before, .tooltip:after { 
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 
+      opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    -moz-transition:    
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    transition:         
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+  border: solid 1px #ffffff;
+}
+/* MUESTRA EL TOOLTIP ENTERO ON HOVER Y ON FOCUS */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+/* ESTILO BASE DE LA FLECHA DIRECCIONAL DEL TOOLTIP */
+.tooltip:before,
+[data-tooltip]:before {
+  z-index: 1001;
+  border: 7px solid transparent;
+  background: transparent;
+  content: "";
+}
+/* ESTILO BASE DE ÁREA DE CONTENIDO DEL TOOLTIP */
+.tooltip:after,
+[data-tooltip]:after {
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.3); 
+  z-index: 1000;
+  padding: 8px;
+  width: 154px;
+  background-color: rgb(20, 20, 20, 0.6);
+  color: #ffffff;
+  content: attr(data-tooltip);
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-weight:400;
+  letter-spacing:0px;
+  line-height: 18px;
+  text-transform:uppercase;
+}
+[data-tooltip]:before,
+.tooltip:before,
+.tooltip-top:before {
+  margin-top: 35px;
+  margin-left:-8px;
+  border-top-color: #ffffff;
+}
+[data-tooltip]:after,
+.tooltip:after,
+.tooltip-top:after {
+ margin-left: -85px;
+}
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip-top:hover:before,
+.tooltip-top:hover:after,
+.tooltip-top:focus:before,
+.tooltip-top:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px); 
+}
+/* COLOR FONDO TOOLTIPS  */
+/* .tooltip-1:after {
+	background-color: #f34747;
+	}
+/* .tooltip-2:after {
+	background-color: #f34747;
+	}
+/* .tooltip-3:after {
+	background-color: #f34747;
+	}
+/* .tooltip-4:after {
+	background-color: #f34747;
+	}
+/* .tooltip-5:after {
+	background-color: #f34747;
+	}
+/* .tooltip-6:after {
+	background-color: #f34747;
+	}
+/* .tooltip-7:after {
+	background-color: #f34747;
+	}
+/* POSICIONAMIENTO TOOLTIPS  */
+.tooltip-1:before,
+.tooltip-1:after {
+	top: 21px;
+	left: 29.1%;
+}
+.tooltip-2:before,
+.tooltip-2:after {
+	top: 110px;
+	left: 29.6%;
+}
+.tooltip-3:before,
+.tooltip-3:after {
+	top: 141px;
+	left: 50.5%;
+}
+.tooltip-4:before,
+.tooltip-4:after {
+	top: 320px;
+	left: 84.0%;
+}
+.tooltip-5:before,
+.tooltip-5:after {
+	top: 74px;
+	left: 51.5%;
+}
+.tooltip-6:before,
+.tooltip-6:after {
+	top: 345px;
+	left: 93.5%;
+}
+.tooltip-7:before,
+.tooltip-7:after {
+	top: 252px;
+	left: 14.5%;
+}
+.tooltip-8:before,
+.tooltip-8:after {
+	top: 195px;
+	left: 86.5%;
+}
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index:3999998;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+/* POPUPS */
+.popup {
+  margin: 50px auto 0 auto;
+  padding: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.3); 
+  overflow:hidden;
+  width:420px;
+  position: relative;
+  transition: all 1s ease-in-out;
+  z-index:3999999;
+}
+/* BOTÓN DE CIERRE DEL POPUP */
+.popup .boton-cierre-popup {
+	background-color:#9e0000;
+	height:39px;
+	width:39px;
+	border-radius:30px;
+	position: absolute;
+	right:9px;
+	top:9px;
+    transition: 0.5s ease;
+}
+.popup .boton-cierre-popup:hover, .popup .boton-cierre-popup:focus {
+	background-color:#000000;
+}
+a.boton-cierre-popup:before {
+content: "";
+display: block;
+height: 26px;
+width: 3px;
+background: #ffffff;
+position: absolute;
+right: 18px;
+top:7px;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+.popup .boton-cierre-popup:after {
+content: "";
+display: block;
+height: 26px;
+width: 3px;
+background: #ffffff;
+position: absolute;
+right: 18px;
+top:7px;
+-webkit-transform:rotate(-45deg);
+-moz-transform:rotate(-45deg);
+-o-transform:rotate(-45deg);
+transform:rotate(-45deg);
+}
+/* CABECERA DEL POPUP */
+.popup .cabecera-popup {
+  font-family: "Open Sans Bold", sans-serif;
+  color: #ffffff;
+    margin:0;
+    padding:;
+}
+#detalle-1 .cabecera-popup {
+	background-color: #ff4646;
+	}
+#detalle-2 .cabecera-popup {
+	background-color: #ff4646;
+	}
+#detalle-3 .cabecera-popup {
+	background-color: #ff4646;
+	}
+#detalle-4 .cabecera-popup {
+	background-color: #ff4646;
+	}
+#detalle-5 .cabecera-popup {
+	background-color: #ff4646;
+	}
+#detalle-6 .cabecera-popup {
+	background-color: #ff4646;
+	}
+#detalle-7 .cabecera-popup {
+	background-color: #ff4646;
+	}
+#detalle-8 .cabecera-popup {
+	background-color: #ff4646;
+	}
+.popup .cabecera-popup .titulo-popup {
+  font-size: 24px;
+  font-weight:700;
+  line-height:26px;
+  padding:15px 60px;
+  margin:0;
+  }
+/* PIE DEL POPUP */
+footer {
+  background-color: #eeeeee;
+  font-family: "Open Sans Regular", sans-serif;
+  font-size:14px;
+  line-height:18px;
+  padding:10px;
+  text-transform:uppercase;
+}
+/* CUERPO DEL POPUP */
+.popup .cuerpo-popup {
+  /*overflow: auto;*/
+}
+/* CONTENEDOR SLIDESHOW */
+.slideshow-container {
+  position: relative;
+  margin: 0 auto;
+  padding:0;
+  text-align: center;
+  height:370px;
+  /*width:290px;*/
+}
+/* CONTENEDOR SLIDESHOW */
+.mySlides {
+  display:block;
+  margin:0 auto;
+  padding:0;
+  position:relative;
+  text-align:center;
+  }
+/* BOTONES AVANCE Y RETROCESO */
+.prev, .next {
+  background-color: rgba(0,0,0,0.2);
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  padding: 40px 16px;
+  margin-top: -22px;
+  color: #ffffff!important;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.5s ease;
+  user-select: none;
+}
+/* POSICIONAMIENTO BOTÓN DE RETROCESO A LA IZQUIERDA */
+.prev {
+  left: 0;
+  border-radius: 0 20px 20px 0;
+  top:30%;
+}
+/* POSICIONAMIENTO BOTÓN DE AVANCE A LA DERECHA */
+.next {
+  right: 0;
+  border-radius: 20px 0 0 20px;
+  top:30%;
+}
+/* ON HOVER LOS BOTONES DE AVANCE Y RETROCESO SE OSCURECEN UN POCO */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.6);
+  color:#ffffff;
+  text-decoration:none;
+}
+/* TÍTULO DEL SLIDE */
+.slide-title {
+  color: #000000;
+  font-family: "Open Sans Regular", sans-serif;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 500;
+  margin: 18px 10px -8px 10px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  /*text-transform: uppercase!important;*/
+}
+/* IMAGEN DEL SLIDE */
+.slide-image {
+    width: 245px;
+    border-radius: 100%;
+    margin: 20px 0 16px 0;
+}
+/* TEXTO DEL SLIDE */
+.slide-text {
+  color: #5f5f5f!important;
+  font-family: "Open Sans Regular", sans-serif!important;
+  font-size: 18px!important;
+  line-height: 22px!important;
+  margin: 0 20px 10px 20px!important;
+  margin-bottom: 10px!important;
+  /*text-transform: uppercase!important;*/
+}
+/* NÚMERO DEL SLIDE */
+.slide-numbertext {
+  color: #a7a7a7;
+  display:inline-block;
+  font-family: "Open Sans Regular", sans-serif;
+  font-size: 14px !important;
+  line-height: 16px !important;
+  position:absolute;
+  bottom:18px;
+  left:46%;
+  text-transform: uppercase;
+}
+/* ANIMACIÓN FADE */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* MEDIA QUERIES */
+@media screen and (max-width: 1920px){
+  .popup {
+    margin-top: 240px;    
+        }
+}
+@media screen and (max-width: 960px){
+  .contenedor-caja {
+	height:700px;
+	}
+  .popup {
+    margin-top: 50px;    
+        }
+}
+@media screen and (max-width: 650px){
+  .contenedor-caja {
+	height:700px;
+	}
+  .slide-numbertext {
+    left:47.5%;      
+    }
+@media screen and (max-width: 648px){
+  .contenedor-caja {
+	height:700px;
+	}  
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 589px){
+  .contenedor-caja {
+	height:700px;
+	}  
+}
+@media screen and (max-width: 565px){
+  .contenedor-caja {
+	height:700px;
+	}  
+}
+@media screen and (max-width: 492px){
+  .contenedor-caja {
+	height:700px;
+	}
+ .popup {
+  width:92%;
+}
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 460px){
+  .contenedor-caja {
+	height:600px;
+	}
+  .contenedor-caja .cabecera .titulo-cabecera {
+	font-size:28px;
+	line-height:30px;
+	}
+  .contenedor-caja .cuerpo {
+	height:360px;
+	width:320px;
+  }
+.boton-anchor-detalle-1 span {
+    top: 35px;
+	right:63.0%;
+	}
+.boton-anchor-detalle-2 span {
+    top: 115px;
+	right:68%;
+	}
+.boton-anchor-detalle-3 span {
+    top: 128px;
+	right:42%;
+	}
+.boton-anchor-detalle-4 span {
+    top: 260px;
+	right:10.5%;
+	}
+.boton-anchor-detalle-5 span {
+    top: 75px;
+	right:42.0%;
+	}
+.boton-anchor-detalle-6 span {
+    top: 290px;
+	right:0.0%;
+	}
+.boton-anchor-detalle-7 span {
+    top: 220px;
+	right:80.0%;
+	}
+.boton-anchor-detalle-8 span {
+    top: 170px;
+	right:6.0%;
+	}
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before, .tooltip:after { 
+    display:none;
+    }
+.slide-image {
+    width: 230px;
+	}
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 383px){
+  .contenedor-caja {
+	height:580px;
+	}
+  .contenedor-caja .cabecera .titulo-cabecera {
+	font-size:24px;
+	line-height:26px;
+	}
+  .contenedor-caja .cuerpo {
+	height:350px;
+	width:320px;
+  }
+.slideshow-container {
+	height:370px;
+	}
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 368px){
+.contenedor-caja {
+	height:550px;
+	}
+.contenedor-caja .cuerpo {
+	height:300px;
+	width:280px;
+  }
+.slideshow-container {
+	height:370px;
+	}
+.boton-anchor-detalle-1 span {
+    top: 30px;
+	right:63.0%;
+	}
+.boton-anchor-detalle-2 span {
+    top: 90px;
+	right:65%;
+	}
+.boton-anchor-detalle-3 span {
+    top: 102px;
+	right:40%;
+	}
+.boton-anchor-detalle-4 span {
+    top: 210px;
+	right:9.5%;
+	}
+.boton-anchor-detalle-5 span {
+    top: 58px;
+	right:41.0%;
+	}
+.boton-anchor-detalle-6 span {
+    top: 240px;
+	right:0.0%;
+	}
+.boton-anchor-detalle-7 span {
+    top: 180px;
+	right:79.0%;
+	}
+.boton-anchor-detalle-8 span {
+    top: 140px;
+	right:6.0%;
+	}
+.slideshow-container {
+	height:370px;
+	}
+.slide-image {
+    width: 230px;
+	}
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 350px){
+.contenedor-caja {
+	height:550px;
+	}
+.contenedor-caja .cuerpo {
+	height:300px;
+	width:280px;
+  }
+.slideshow-container {
+	height:370px;
+	}
+@media screen and (max-width: 334px){
+  .contenedor-caja {
+	height:570px;
+	}
+.contenedor-caja .cuerpo {
+	height:300px;
+	width:260px;
+  }
+.boton-anchor-detalle-1 span {
+    top: 25px;
+	right:63.0%;
+	}
+.boton-anchor-detalle-2 span {
+    top: 90px;
+	right:65%;
+	}
+.boton-anchor-detalle-3 span {
+    top: 102px;
+	right:40%;
+	}
+.boton-anchor-detalle-4 span {
+    top: 210px;
+	right:9.5%;
+	}
+.boton-anchor-detalle-5 span {
+    top: 58px;
+	right:40.0%;
+	}
+.boton-anchor-detalle-6 span {
+    top: 240px;
+	right:0.0%;
+	}
+.boton-anchor-detalle-7 span {
+    top: 180px;
+	right:79.0%;
+	}
+.boton-anchor-detalle-8 span {
+    top: 140px;
+	right:5.0%;
+	}
+.slideshow-container {
+	height:370px;
+	}
+  }
+@media screen and (max-width: 332px){
+  .contenedor-caja {
+	height:580px;
+	}
+.slideshow-container {
+	height:370px;
+	}
+  }
+@media screen and (max-width: 324px){
+  .contenedor-caja {
+	height:570px;
+	}
+.slideshow-container {
+	height:370px;
+	}
+  .slide-text {
+    font-size: 16px!important;
+	}
+  .slide-numbertext {
+    left:45%;      
+    }
+  }
+@media screen and (max-width: 300px){
+  .contenedor-caja {
+	height:580px;
+	}
+.slideshow-container {
+	height:350px;
+	}
+.slide-image {
+    width: 210px;
+	}
+  .slide-numbertext {
+    left:44%;      
+    }
+}
+</style>
+<!-- CONTENEDOR -->
+<div class="contenedor-caja">
+<!-- CABECERA -->
+	<div class="cabecera">
+		<a class="anchor-invisible" href="" id="jardin-delicias"></a>
+		<h1 class="titulo-cabecera">El Jardín de las Delicias:<br>2. El Jardín Terrenal</h1>
+		<span class="instrucciones-cabecera">Detalles destacados del tríptico más famoso de Hieronymus Bosch 'El Bosco'</span>
+	</div>
+<!-- CUERPO -->
+	<div class="cuerpo">
+		<!--ANCHORS -->
+		<a class="boton-anchor-detalle-1 tooltip tooltip-1" href="#detalle-1" id="popup-1" data-tooltip="Horizonte">
+			<span class="numero">1</span>
+		</a>
+		<a class="boton-anchor-detalle-2 tooltip tooltip-2" href="#detalle-2" id="popup-2" data-tooltip="Jóvenes cabalgantes">
+			<span class="numero">2</span>
+		</a>
+		<a class="boton-anchor-detalle-3 tooltip tooltip-3" href="#detalle-3" id="popup-3" data-tooltip="Mujeres en el lago">
+			<span class="numero">3</span>
+		</a>
+		<a class="boton-anchor-detalle-4 tooltip tooltip-4" href="#detalle-4" id="popup-4" data-tooltip="Mujer peluda">
+			<span class="numero">4</span>
+		</a>
+		<a class="boton-anchor-detalle-5 tooltip tooltip-5" href="#detalle-5" id="popup-5" data-tooltip="Escena erótica">
+			<span class="numero">5</span>
+		</a>
+		<a class="boton-anchor-detalle-6 tooltip tooltip-6" href="#detalle-6" id="popup-6" data-tooltip="Personajes vestidos">
+			<span class="numero">6</span>
+		</a>
+		<a class="boton-anchor-detalle-7 tooltip tooltip-7" href="#detalle-7" id="popup-7" data-tooltip="Amantes encerrados">
+			<span class="numero">7</span>
+		</a>
+		<a class="boton-anchor-detalle-8 tooltip tooltip-8" href="#detalle-8" id="popup-8" data-tooltip="Frutas rojas">
+			<span class="numero">8</span>
+		</a>
+		<!-- POPUPS -->
+		<div id="detalle-1" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">El horizonte</h2>
+					<a class="boton-cierre-popup" href="#jardin-delicias"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides1 fade">
+                            <h2 class="slide-title">El Paraíso</h2>
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/horizonte-540x540-1.jpg"/>
+                            <p class="slide-text">Es continuo en los tres paneles del tríptico.</p>
+                            <span class="slide-numbertext">1 / 3</span>
+                        </div>
+                        <div class="mySlides1 fade">
+                            <h2 class="slide-title">El Jardín Terrenal</h2>
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/horizonte-540x540-3.jpg"/>
+                            <p class="slide-text">Es continuo en los tres paneles del tríptico.</p>
+                            <span class="slide-numbertext">2 / 3</span>
+                        </div>
+                        <div class="mySlides1 fade">
+                            <h2 class="slide-title">El Infierno</h2>
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/horizonte-540x540-4.jpg"/>
+                            <p class="slide-text">Con ello unifica y da continuidad a la obra.</p>
+                            <span class="slide-numbertext">3 / 3</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,0)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>
+		<div id="detalle-2" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Hombres jóvenes cabalgando</h2>
+					<a class="boton-cierre-popup" href="#jardin-delicias"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides2 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/cavalgantes-1-540x540.jpg"/>
+                            <p class="slide-text">Montados sobre diferentes tipos de animales.</p>
+                            <span class="slide-numbertext">1 / 2</span>
+                        </div>
+                        <div class="mySlides2 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/cavalgantes-2-540x540.jpg"/>
+                            <p class="slide-text">Hacen referencia al Amor Cortés.</p>
+                            <span class="slide-numbertext">2 / 2</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,1)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>
+		<div id="detalle-3" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Mujeres jóvenes en el lago central</h2>
+					<a class="boton-cierre-popup" href="#jardin-delicias"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides3 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/mujeres-jovenes-lago-1-540x540.jpg"/>
+                            <p class="slide-text">Su baño evoca a Venus.</p>
+                            <span class="slide-numbertext">1 / 2</span>
+                        </div>
+                        <div class="mySlides3 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/mujeres-jovenes-lago-2-540x540.jpg"/>
+                            <p class="slide-text">Simbolizan el deseo sexual.</p>
+                            <span class="slide-numbertext">2 / 2</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,2)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,2)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>
+		<div id="detalle-4" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">La mujer peluda</h2>
+					<a class="boton-cierre-popup" href="#jardin-delicias"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/mujer-peluda-540x540.jpg"/>
+                            <p class="slide-text">Este personaje aparece cubierto de una fina capa de vello.</p>
+                            <!--<span class="slide-numbertext">1 / 1</span>-->
+                        </div>
+                        <!--<a class="prev" onclick="plusSlides(-1,3)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,3)">&#10095;</a>-->
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>
+		<div id="detalle-5" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">La escena más erótica</h2>
+					<a class="boton-cierre-popup" href="#jardin-delicias"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/erotismo-escondido-540x540.jpg"/>
+                            <p class="slide-text">También es la más escondida del cuadro.</p>
+                            <span class="slide-numbertext">1 / 1</span>
+                        </div>
+                        <!--<div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <!--<img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/05/gioconda-paris-manga-interior-540x540.jpg"/>
+                            <p class="slide-text">Sin embargo, en el cuadro de Leonardo no aparecen.</p>
+                            <span class="slide-numbertext">2 / 2</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,4)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,4)">&#10095;</a>-->
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>		
+		<div id="detalle-6" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Dos personajes vestidos</h2>
+					<a class="boton-cierre-popup" href="#jardin-delicias"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides6 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/pareja-vestida-540x540.jpg"/>
+                            <p class="slide-text">Una pareja que puede ser Adán y Eva.</p>
+                            <span class="slide-numbertext">1 / 2</span>
+                        </div>
+                        <div class="mySlides6 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/pareja-vestida-540x540.jpg"/>
+                            <p class="slide-text">En el momento de ser expulsados del Paraíso.</p>
+                            <span class="slide-numbertext">2 / 2</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,5)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,5)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>		
+		<div id="detalle-7" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Amantes encerrados</h2>
+					<a class="boton-cierre-popup" href="#jardin-delicias"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides7 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/amantes-cristal-540x540.jpg"/>
+                            <p class="slide-text">Los amantes encerrados en la bola de cristal rota...</p>
+                            <span class="slide-numbertext">1 / 3</span>
+                        </div>
+                        <div class="mySlides7 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/amantes-cristal-540x540.jpg"/>
+                            <p class="slide-text">Pueden hacer referencia a un refrán flamenco.</p>
+                            <span class="slide-numbertext">2 / 3</span>
+                        </div>
+                        <div class="mySlides7 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/amantes-cristal-540x540.jpg"/>
+                            <p class="slide-text">Que dice que la felicidad, como el cristal, se rompe pronto.</p>
+                            <span class="slide-numbertext">3 / 3</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,6)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,6)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>		
+		<div id="detalle-8" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">Frutas rojas</h2>
+					<a class="boton-cierre-popup" href="#jardin-delicias"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides8 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/frutas-rojas-1-540x540.jpg"/>
+                            <p class="slide-text">Tienen un tamaño desproporcionado.</p>
+                            <span class="slide-numbertext">1 / 2</span>
+                        </div>
+                        <div class="mySlides8 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/frutas-rojas-2-540x540.jpg"/>
+                            <p class="slide-text">Están relacionadas con la tentación y lo efímero.</p>
+                            <span class="slide-numbertext">2 / 2</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,7)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,7)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>		
+		
+	</div>
+<!-- PIE -->
+<div class="pie">
+		<img class="logo" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/05/logo-lv-131x20.png" title="La Vanguardia" alt="La Vanguardia" />
+		<span class="">Fuente: Museo del Prado</span>
+</div>
+</div>
+<!-- SCRIPT SLIDER -->
+                    <script>
+                        var slideIndex = [1,1,1,1,1,1,1,1];
+                        var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5", "mySlides6", "mySlides7", "mySlides8"]
+                        showSlides(1, 0);
+                        showSlides(1, 1);
+                        showSlides(1, 2);
+                        showSlides(1, 3);
+						showSlides(1, 4);
+						showSlides(1, 5);
+						showSlides(1, 6);
+                        showSlides(1, 7);
+
+                        function plusSlides(n, no) {
+                            showSlides(slideIndex[no] += n, no);
+                        }
+
+                        function showSlides(n, no) {
+                            var i;
+                            var x = document.getElementsByClassName(slideId[no]);
+                            if (n > x.length) {slideIndex[no] = 1}    
+                            if (n < 1) {slideIndex[no] = x.length}
+                            for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";  
+                            }
+                            x[slideIndex[no]-1].style.display = "block";  
+                        }
+                    </script>
+<!-- FIN CAJA -->

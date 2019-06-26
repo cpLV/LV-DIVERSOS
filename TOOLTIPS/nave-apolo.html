@@ -1,0 +1,1164 @@
+<!-- CAJA TOOLTIPS + LIGHTBOX + SLIDER -->
+
+<!-- SCRIPT IFRAME RESPONSIVE -->
+<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+
+<!-- ESTILOS -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+<style>
+/* CONTENEDOR + CUERPO + PIE */
+.contenedor-caja {
+	background-color: #011828;
+    border-radius: 20px;
+	color:#ffffff;
+	height:755px;
+	margin:0 auto 30px auto;
+	overflow:hidden;
+    padding:0;
+	text-align:center;
+	vertical-align:top;
+	width:100%;
+}
+.contenedor-caja .cabecera, .pie {
+	color:#ffffff;
+	margin:0 auto;
+	padding:0 10px;
+}
+.contenedor-caja .cabecera .titulo-cabecera {
+	border-bottom:solid 1px #33598a;
+    color:#ffed00;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:36px;
+    font-weight:700;
+	line-height:38px;
+    margin: 0 auto;
+	padding:15px 10px 13px 10px;
+    text-transform: uppercase;
+}
+.contenedor-caja .cabecera .instrucciones-cabecera {
+    color:#ffffff;
+	display:inline-block;
+	font-family: "Open Sans Regular", sans-serif;
+	font-size:16px;
+	line-height:22px;
+    margin:0 auto;
+	padding:15px 15px 10px 15px;
+	text-transform:uppercase;
+}
+.contenedor-caja .cuerpo {
+	background-image: url("https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/apolo-11-fondo-480x640-emblema-apolo-cohete-traje-ok.jpg");
+	background-color: #011828;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-bottom:solid 1px #33598a;
+	height:540px;
+	width:410px;
+	margin:0 auto 15px auto;
+	position:relative;
+	text-align:center;
+  }
+.contenedor-caja .pie {
+	display:inline-block;
+	font-family: "Open Sans Regular", sans-serif;
+	font-size:14px;
+	line-height:18px;
+	padding:0 0 20px 0;
+	vertical-align:top;
+	text-align:center;
+}
+.contenedor-caja .pie .logo {
+	border: solid 1px #999999;
+	display:block;
+	margin:0 auto 7px auto;
+	padding:0;
+}
+/* BOTONES ANCHORS */
+.boton-anchor-detalle-1 span, .boton-anchor-detalle-2 span, .boton-anchor-detalle-3 span, .boton-anchor-detalle-4 span, .boton-anchor-detalle-5 span, .boton-anchor-detalle-6 span, .boton-anchor-detalle-7 span, .boton-anchor-detalle-8 span {
+	width: 40px;
+    height: 30px;
+    border: 3px solid #011828;
+    border-radius: 100px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.7);
+    position: absolute;
+    color: #ffed00;
+    font-family: "Open Sans Bold", sans-serif;
+    font-size: 30px;
+    line-height: 22px;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+    text-align: -webkit-center;
+	background-color: rgb(255, 0, 0, 0.8);
+    text-align: -webkit-center;
+	}
+.boton-anchor-detalle-1 span:hover, .boton-anchor-detalle-2 span:hover, .boton-anchor-detalle-3 span:hover, .boton-anchor-detalle-4 span:hover, .boton-anchor-detalle-5 span:hover, .boton-anchor-detalle-6 span:hover, .boton-anchor-detalle-7 span:hover, .boton-anchor-detalle-8 span:hover {
+    color: #ffffff;
+    border: 3px solid #ffed00;
+	}
+.boton-anchor-detalle-1 span {
+    top: 90px;
+	right:46.0%;
+	}
+.boton-anchor-detalle-2 span {
+    top: 244px;
+	right:89.0%;
+	}
+.boton-anchor-detalle-3 span {
+    top: 170px;
+	right:55%;
+	}
+.boton-anchor-detalle-4 span {
+    top: 250px;
+	right:43%;
+	}
+.boton-anchor-detalle-5 span {
+    top: 375px;
+	right:25.5%;
+	}
+.boton-anchor-detalle-6 span {
+    top: 415px;
+	right:55.5%;
+	}
+/* TOOLTIPS */
+/* ESTILO BASE DEL TOOLTIP */
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before, .tooltip:after { 
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 
+      opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    -moz-transition:    
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    transition:         
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+  border: solid 1px #ffed00;
+}
+/* MUESTRA EL TOOLTIP ENTERO ON HOVER Y ON FOCUS */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+/* ESTILO BASE DE LA FLECHA DIRECCIONAL DEL TOOLTIP */
+.tooltip:before,
+[data-tooltip]:before {
+  z-index: 1001;
+  border: 7px solid transparent;
+  background: transparent;
+  content: "";
+}
+/* ESTILO BASE DE ÁREA DE CONTENIDO DEL TOOLTIP */
+.tooltip:after,
+[data-tooltip]:after {
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.3); 
+  z-index: 1000;
+  padding: 8px;
+  width: 154px;
+  background-color: rgb(4, 47, 102, 0.7);
+  color: #ffffff;
+  content: attr(data-tooltip);
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 16px;
+  font-weight:700;
+  letter-spacing:0px;
+  line-height: 18px;
+  text-transform:uppercase;
+}
+[data-tooltip]:before,
+.tooltip:before,
+.tooltip-top:before {
+  margin-top: 35px;
+  margin-left:-8px;
+  border-top-color: #ffed00;
+}
+[data-tooltip]:after,
+.tooltip:after,
+.tooltip-top:after {
+ margin-left: -85px;
+}
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip-top:hover:before,
+.tooltip-top:hover:after,
+.tooltip-top:focus:before,
+.tooltip-top:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px); 
+}
+/* COLOR FONDO TOOLTIPS  */
+/* .tooltip-1:after {
+	background-color: #f34747;
+	}
+/* .tooltip-2:after {
+	background-color: #f34747;
+	}
+/* .tooltip-3:after {
+	background-color: #f34747;
+	}
+/* .tooltip-4:after {
+	background-color: #f34747;
+	}
+/* .tooltip-5:after {
+	background-color: #f34747;
+	}
+/* .tooltip-6:after {
+	background-color: #f34747;
+	}
+/* .tooltip-7:after {
+	background-color: #f34747;
+	}
+/* POSICIONAMIENTO TOOLTIPS  */
+.tooltip-1:before,
+.tooltip-1:after {
+	top: 60px;
+	left: 48.6%;
+}
+.tooltip-2:before,
+.tooltip-2:after {
+	top: 214px;
+	left: 5.7%;
+}
+.tooltip-3:before,
+.tooltip-3:after {
+	top: 140px;
+	left: 39.6%;
+}
+.tooltip-4:before,
+.tooltip-4:after {
+	top: 220px;
+	left: 51.5%;
+}
+.tooltip-5:before,
+.tooltip-5:after {
+	top: 345px;
+	left: 69.2%;
+}
+.tooltip-6:before,
+.tooltip-6:after {
+	top: 385px;
+	left: 39.2%;
+}
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index:3999998;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+/* POPUPS */
+.popup {
+  margin: 50px auto 0 auto;
+  padding: 0;
+  background: #ffffff;
+  border: solid 1px #98aac7;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.3); 
+  overflow:hidden;
+  width:420px;
+  position: relative;
+  transition: all 1s ease-in-out;
+  z-index:3999999;
+}
+/* BOTÓN DE CIERRE DEL POPUP */
+.popup .boton-cierre-popup {
+	background-color:#c3b81f;
+	height:39px;
+	width:39px;
+	border-radius:30px;
+	position: absolute;
+	right:9px;
+	top:9px;
+    transition: 0.5s ease;
+}
+.popup .boton-cierre-popup:hover, .popup .boton-cierre-popup:focus {
+	background-color:#f34747;
+}
+a.boton-cierre-popup:before {
+content: "";
+display: block;
+height: 26px;
+width: 3px;
+background: #ffffff;
+position: absolute;
+right: 18px;
+top:7px;
+-webkit-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+.popup .boton-cierre-popup:after {
+content: "";
+display: block;
+height: 26px;
+width: 3px;
+background: #ffffff;
+position: absolute;
+right: 18px;
+top:7px;
+-webkit-transform:rotate(-45deg);
+-moz-transform:rotate(-45deg);
+-o-transform:rotate(-45deg);
+transform:rotate(-45deg);
+}
+/* CABECERA DEL POPUP */
+.popup .cabecera-popup {
+  color: #ffffff;
+  margin:0;
+  padding:0;
+}
+#detalle-1 .cabecera-popup {
+	background-color: #1b6090;
+	}
+#detalle-2 .cabecera-popup {
+	background-color: #1b6090;
+	}
+#detalle-3 .cabecera-popup {
+	background-color: #1b6090;
+	}
+#detalle-4 .cabecera-popup {
+	background-color: #1b6090;
+	}
+#detalle-5 .cabecera-popup {
+	background-color: #1b6090;
+	}
+#detalle-6 .cabecera-popup {
+	background-color: #1b6090;
+	}
+#detalle-7 .cabecera-popup {
+	background-color: #1b6090;
+	}
+#detalle-8 .cabecera-popup {
+	background-color: #1b6090;
+	}
+.popup .cabecera-popup .titulo-popup {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 30px;
+  font-weight:700;
+  line-height:30px;
+  padding:15px 60px;
+  margin:0;
+  text-transform: uppercase;
+  }
+/* PIE DEL POPUP */
+footer {
+  background-color: #eeeeee;
+  font-family: "Open Sans Regular", sans-serif;
+  font-size:14px;
+  line-height:18px;
+  padding:10px;
+  text-transform:uppercase;
+}
+/* CUERPO DEL POPUP */
+.popup .cuerpo-popup {
+  /*overflow: auto;*/
+}
+/* CONTENEDOR SLIDESHOW */
+.slideshow-container {
+  position: relative;
+  margin: 0 auto;
+  padding:0;
+  text-align: center;
+  height:370px;
+  /*width:290px;*/
+}
+/* CONTENEDOR SLIDESHOW */
+.mySlides {
+  display:block;
+  margin:0 auto;
+  padding:0;
+  position:relative;
+  text-align:center;
+  }
+/* BOTONES AVANCE Y RETROCESO */
+.prev, .next {
+  background-color: rgba(113,132,163,0.4);
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  padding: 40px 16px;
+  margin-top: -22px;
+  color: #ffffff!important;
+  font-weight: bold;
+  font-size: 24px!important;
+  transition: 0.5s ease;
+  user-select: none;
+}
+/* POSICIONAMIENTO BOTÓN DE RETROCESO A LA IZQUIERDA */
+.prev {
+  left: 0;
+  border-radius: 0 20px 20px 0;
+  top:35%;
+}
+/* POSICIONAMIENTO BOTÓN DE AVANCE A LA DERECHA */
+.next {
+  right: 0;
+  border-radius: 20px 0 0 20px;
+  top:35%;
+}
+/* ON HOVER LOS BOTONES DE AVANCE Y RETROCESO SE OSCURECEN UN POCO */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.4);
+  color:#ffed00!important;
+  text-decoration:none;
+}
+/* TÍTULO DEL SLIDE */
+.slide-title {
+  color: #000000;
+  font-family: "Open Sans Regular", sans-serif;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 500;
+  margin: 16px 10px 18px 10px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* IMAGEN DEL SLIDE */
+.slide-image {
+    width: 240px;
+    border-radius: 100%;
+    margin: 20px 0 12px 0;
+}
+/* TEXTO DEL SLIDE */
+.slide-text {
+  color: #5f5f5f!important;
+  font-family: "Open Sans Regular", sans-serif!important;
+  font-size: 18px!important;
+  font-weight: 400;
+  line-height: 22px!important;
+  margin: 0 20px 10px 20px!important;
+  margin-bottom: 10px!important;
+  /*text-transform: uppercase!important;*/
+}
+/* NÚMERO DEL SLIDE */
+.slide-numbertext {
+  color: #a7a7a7;
+  display:inline-block;
+  font-family: "Open Sans Regular", sans-serif;
+  font-size: 14px !important;
+  line-height: 16px !important;
+  position:absolute;
+  bottom:18px;
+  left:46%;
+  text-transform: uppercase;
+}
+/* ANIMACIÓN FADE */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* MEDIA QUERIES */
+@media screen and (max-width: 1920px){
+  .popup {
+    margin-top: 240px;    
+        }
+}
+@media screen and (max-width: 960px){
+  .contenedor-caja {
+	height:755px;
+	}
+  .popup {
+    margin-top: 50px;    
+        }
+}
+@media screen and (max-width: 650px){
+  .contenedor-caja {
+	height:755px;
+	}
+  .slide-numbertext {
+    left:46%;      
+    }
+@media screen and (max-width: 595px){
+  .contenedor-caja {
+	height:755px;
+	}  
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 589px){
+  .contenedor-caja {
+	height:755px;
+	}  
+}
+@media screen and (max-width: 565px){
+  .contenedor-caja {
+	height:775px;
+	}  
+}
+@media screen and (max-width: 492px){
+  .contenedor-caja {
+	height:775px;
+	}
+ .popup {
+  width:92%;
+}
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 460px){
+  .contenedor-caja {
+    border-radius: 10px;
+	height:660px;
+	}
+  .contenedor-caja .cabecera .titulo-cabecera {
+	font-size:30px;
+	line-height:32px;
+	}
+  .contenedor-caja .cuerpo {
+	height:430px;
+	width:320px;
+  }
+.contenedor-caja .pie {
+    padding: 0 10px 10px 10px;
+    }
+.boton-anchor-detalle-1 span {
+    top: 70px;
+	right:44.0%;
+	}
+.boton-anchor-detalle-2 span {
+    top: 188px;
+	right:89.5%;
+	}
+.boton-anchor-detalle-3 span {
+    top: 140px;
+	right:52%;
+	}
+.boton-anchor-detalle-4 span {
+    top: 197px;
+	right:41%;
+	}
+.boton-anchor-detalle-5 span {
+    top: 295px;
+	right:23.5%;
+	}
+.boton-anchor-detalle-6 span {
+    top: 330px;
+	right:52.5%;
+	}
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before, .tooltip:after { 
+    display:none;
+    }
+.slideshow-container {
+	height:385px;
+	}
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 410px){
+  .contenedor-caja {
+	height:660px;
+	}
+  .contenedor-caja .cabecera .titulo-cabecera {
+	font-size:28px;
+	line-height:30px;
+	}
+}
+@media screen and (max-width: 398px){
+  .contenedor-caja {
+	height:675px;
+	}
+}
+@media screen and (max-width: 388px){
+  .contenedor-caja {
+	height:675px;
+	}
+}
+@media screen and (max-width: 386px){
+  .contenedor-caja {
+	height:700px;
+	}
+  .contenedor-caja .cuerpo {
+	height:430px;
+	width:320px;
+  }
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 367px){
+.contenedor-caja {
+	height:650px;
+	}
+.contenedor-caja .cuerpo {
+	height:380px;
+	width:280px;
+  }
+.boton-anchor-detalle-1 span {
+    top: 52px;
+	right:42.0%;
+	}
+.boton-anchor-detalle-2 span {
+    top: 165px;
+	right:89.5%;
+	}
+.boton-anchor-detalle-3 span {
+    top: 110px;
+	right:52%;
+	}
+.boton-anchor-detalle-4 span {
+    top: 170px;
+	right:40.5%;
+	}
+.boton-anchor-detalle-5 span {
+    top: 255px;
+	right:22.5%;
+	}
+.boton-anchor-detalle-6 span {
+    top: 285px;
+	right:51.5%;
+	}
+.slideshow-container {
+	height:380px;
+	}
+.slide-image {
+    width: 230px;
+	}
+  .slide-numbertext {
+    left:46%;      
+    }
+}
+@media screen and (max-width: 350px){
+.contenedor-caja {
+	height:645px;
+	}
+.contenedor-caja .cuerpo {
+	height:380px;
+	width:280px;
+  }
+  .contenedor-caja .cabecera .titulo-cabecera {
+	font-size:26px;
+	line-height:28px;
+	}
+.slideshow-container {
+	height:375px;
+	}
+@media screen and (max-width: 336px){
+  .contenedor-caja {
+	height:615px;
+	}
+.contenedor-caja .cuerpo {
+	height:360px;
+	width:260px;
+  }
+.contenedor-caja .cabecera .instrucciones-cabecera {
+    padding: 15px 15px 0px 15px;  
+    }
+
+.boton-anchor-detalle-1 span {
+    top: 52px;
+	right:42.0%;
+	}
+.boton-anchor-detalle-2 span {
+    top: 155px;
+	right:87.0%;
+	}
+.boton-anchor-detalle-3 span {
+    top: 105px;
+	right:51%;
+	}
+.boton-anchor-detalle-4 span {
+    top: 160px;
+	right:40.5%;
+	}
+.boton-anchor-detalle-5 span {
+    top: 245px;
+	right:22.5%;
+	}
+.boton-anchor-detalle-6 span {
+    top: 270px;
+	right:51.0%;
+	}
+.slide-image {
+    width: 210px;
+	}
+  }
+@media screen and (max-width: 342px){
+.slide-image {
+    width: 210px;
+	}
+  .slide-text {
+    font-size: 16px!important;
+	}
+  }
+@media screen and (max-width: 332px){
+  .contenedor-caja {
+	height:615px;
+	}
+.slide-image {
+    width: 210px;
+	}
+  }
+@media screen and (max-width: 324px){
+  .contenedor-caja {
+	height:615px;
+	}
+  .slide-numbertext {
+    left:46%;      
+    }
+  }
+@media screen and (max-width: 320px){
+  .contenedor-caja {
+	height:635px;
+	}
+  .slide-text {
+    font-size: 16px!important;
+	}
+  .slide-numbertext {
+    left:45%;      
+    }
+  }
+@media screen and (max-width: 320px){
+.slide-image {
+    width: 210px;
+	}
+  }
+@media screen and (max-width: 300px){
+  .contenedor-caja {
+	height:640px;
+	}
+.slide-image {
+    width: 210px;
+	}
+  .slide-numbertext {
+    left:44.0%;      
+    }
+}
+</style>
+<!-- CONTENEDOR -->
+<div class="contenedor-caja">
+<!-- CABECERA -->
+	<div class="cabecera">
+		<a class="anchor-invisible" href="" id="nave-apolo"></a>
+		<h1 class="titulo-cabecera">La astronave Apolo</h1>
+		<span class="instrucciones-cabecera">Descubre detalles del vehículo espacial que llevó al ser humano a la Luna por primera hace ahora 50 años.</span>
+	</div>
+<!-- CUERPO -->
+	<div class="cuerpo">
+		<!--ANCHORS -->
+		<a class="boton-anchor-detalle-1 tooltip tooltip-1" href="#detalle-1" id="popup-1" data-tooltip="El Programa Apolo">
+			<span class="numero">1</span>
+		</a>
+		<a class="boton-anchor-detalle-2 tooltip tooltip-2" href="#detalle-2" id="popup-2" data-tooltip="El Saturno V">
+			<span class="numero">2</span>
+		</a>
+		<a class="boton-anchor-detalle-3 tooltip tooltip-3" href="#detalle-3" id="popup-3" data-tooltip="El módulo de servicio">
+			<span class="numero">3</span>
+		</a>
+		<a class="boton-anchor-detalle-4 tooltip tooltip-4" href="#detalle-4" id="popup-4" data-tooltip="El módulo de mando">
+			<span class="numero">4</span>
+		</a>
+		<a class="boton-anchor-detalle-5 tooltip tooltip-5" href="#detalle-5" id="popup-5" data-tooltip="El módulo lunar">
+			<span class="numero">5</span>
+		</a>
+		<a class="boton-anchor-detalle-6 tooltip tooltip-6" href="#detalle-6" id="popup-6" data-tooltip="El traje lunar">
+			<span class="numero">6</span>
+		</a>
+		<!-- POPUPS -->
+		<div id="detalle-1" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">1. El programa Apolo</h2>
+					<a class="boton-cierre-popup" href="#nave-apolo"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides1 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/emblema-programa-apolo-540x540.jpg"/>
+                            <p class="slide-text">Fue, y aún es, uno de los mayores hitos de la historia de la astronáutica y de la técnica.</p>
+                            <span class="slide-numbertext">1 / 6</span>
+                        </div>
+                        <div class="mySlides1 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/huella-540x540.jpg"/>
+                            <p class="slide-text">Permitió al ser humano pisar la Luna por primera vez el 20 de julio de 1969.</p>
+                            <span class="slide-numbertext">2 / 6</span>
+                        </div>
+                        <div class="mySlides1 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/tripulación-apolo-11-540x540.jpg"/>
+                            <p class="slide-text">Hasta hoy, ha sido la única astronave capaz de llevar personas a otro planeta.</p>
+                            <span class="slide-numbertext">3 / 6</span>
+                        </div>
+                     <div class="mySlides1 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/emblemas-misiones-apolo-540x540-ok.jpg"/>
+                            <p class="slide-text">En concreto, 12 astronautas en 6 misiones que consiguieron el alunizaje.</p>
+                            <span class="slide-numbertext">4 / 6</span>
+                        </div>
+                        <div class="mySlides1 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-servicio-orbita-lunar-540x540-2.jpg"/>
+                            <p class="slide-text">La nave tenía 3 componentes: módulo de servicio, módulo de mando y módulo lunar.</p>
+                            <span class="slide-numbertext">5 / 6</span>
+                        </div>
+                        <div class="mySlides1 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/saturno-v-sistema-despegue-540x540-3.jpg"/>
+                            <p class="slide-text">Y era lanzada al espacio por el mayor cohete de la época: el Saturno V.</p>
+                            <span class="slide-numbertext">6 / 6</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,0)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>
+		<div id="detalle-2" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">2. El Saturno V</h2>
+					<a class="boton-cierre-popup" href="#nave-apolo"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides2 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/saturno-v-sistema-despegue-540x540-2.jpg"/>
+                            <p class="slide-text">El cohete lanzador de la misión Apolo, era el más poderoso construído hasta entonces.</p>
+                            <span class="slide-numbertext">1 / 5</span>
+                        </div>
+                        <div class="mySlides2 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/saturno-v-vista-aerea-540x540.jpg"/>
+                            <p class="slide-text">Tenía 3 etapas, unos 111 metros de altura y pesaba unas 3.000 toneladas.</p>
+                            <span class="slide-numbertext">2 / 5</span>
+                        </div>
+                        <div class="mySlides2 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/saturno-v-sistema-despegue-540x540-1.jpg"/>
+                            <p class="slide-text">Era capaz de poner hasta 140 toneladas en órbita terrestre y hasta 48 en órbita lunar.</p>
+                            <span class="slide-numbertext">3 / 5</span>
+                        </div>
+                        <div class="mySlides2 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/saturno-v-tercera-etapa-540x540.jpg"/>
+                            <p class="slide-text">La nave Apolo se hallaba ubicada en la parte superior de la tercera etapa del cohete.</p>
+                            <span class="slide-numbertext">4 / 5</span>
+                        </div>
+                        <div class="mySlides2 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/saturno-v-sistema-escape-540x540-2.jpg"/>
+                            <p class="slide-text">Disponía de un sistema de salvamento en caso de emergencia.</p>
+                            <span class="slide-numbertext">5 / 5</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,1)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>
+		<div id="detalle-3" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">3. El módulo de servicio</h2>
+					<a class="boton-cierre-popup" href="#nave-apolo"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides3 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-servicio-orbita-lunar-540x540-1.jpg"/>
+                            <p class="slide-text">Contenía el oxígeno, el agua y la energía necesarios para el módulo de mando.</p>
+                            <span class="slide-numbertext">1 / 4</span>
+                        </div>
+                        <div class="mySlides3 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-servicio-motor-540x540-2.jpg"/>
+                            <p class="slide-text">También albergaba los sistemas de comunicación y de propulsión de la nave.</p>
+                            <span class="slide-numbertext">2 / 4</span>
+                        </div>
+                        <div class="mySlides3 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-servicio-motor-540x540-3.jpg"/>
+                            <p class="slide-text">Su motor cohete puso al Apolo en órbita lunar y lo impulsó de regreso a la Tierra.</p>
+                            <span class="slide-numbertext">3 / 4</span>
+                        </div>
+                        <div class="mySlides3 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-servicio-abandonado-540x540.jpg"/>
+                            <p class="slide-text">Era abandonado justo antes de volver a entrar en la atmósfera terrestre.</p>
+                            <span class="slide-numbertext">4 / 4</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,2)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,2)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>
+		<div id="detalle-4" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">4. El módulo de mando</h2>
+					<a class="boton-cierre-popup" href="#nave-apolo"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-mando-interior-540x540-3.jpg"/>
+                            <p class="slide-text">Era el hábitat principal de los tres tripulantes durante los 8 días del viaje completo.</p>
+                            <span class="slide-numbertext">1 / 9</span>
+                        </div>
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-mando-transporte-540x540.jpg"/>
+                            <p class="slide-text">Tenía unos 3 metros de altura, una base de casi 4 metros y pesaba casi 6.000 kilos.</p>
+                            <span class="slide-numbertext">2 / 9</span>
+                        </div>
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-mando-interior-540x540-1-ok.jpg"/>
+                            <p class="slide-text">Su espacio habitable, unos 6 metros cúbicos, era equivalente al de un coche grande.</p>
+                            <span class="slide-numbertext">3 / 9</span>
+                        </div>
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-mando-orbita-lunar-540x540-1.jpg"/>
+                            <p class="slide-text">Permanecía a la espera en órbita lunar con uno de los miembros de la tripulación...</p>
+                            <span class="slide-numbertext">4 / 9</span>
+                        </div>
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-orbita-540x540-2.jpg"/>
+                            <p class="slide-text">Mientras los otros dos desdendían a la superficie en el módulo lunar.</p>
+                            <span class="slide-numbertext">5 / 9</span>
+                        </div>
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-mando-museo-540x540-1.jpg"/>
+                            <p class="slide-text">Tenía dos escotillas: una de entrada y otra que comunicaba con el módulo lunar.</p>
+                            <span class="slide-numbertext">6 / 9</span>
+                        </div>
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-mando-amerizaje-540x540-3.jpg"/>
+                            <p class="slide-text">Era el único módulo de la nave Apolo en regresar a la Tierra al final del viaje.</p>
+                            <span class="slide-numbertext">7 / 9</span>
+                        </div>
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-mando-reentrada-540x540.jpg"/>
+                            <p class="slide-text">Atravesaba la atmósfera protegido por su escudo térmico.</p>
+                            <span class="slide-numbertext">8 / 9</span>
+                        </div>
+                        <div class="mySlides4 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-mando-amerizaje-540x540-1.jpg"/>
+                            <p class="slide-text">Y amerizaba suavemente tras ser frenado con grandes paracaídas.</p>
+                            <span class="slide-numbertext">9 / 9</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,3)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,3)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>
+		<div id="detalle-5" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">5. El módulo lunar</h2>
+					<a class="boton-cierre-popup" href="#nave-apolo"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-orbita-superficie-540x540-2.jpg"/>
+                            <p class="slide-text">Transportaba a dos astronautas desde la órbita hasta la superficie lunar.</p>
+                            <span class="slide-numbertext">1 / 9</span>
+                        </div>
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-orbita-superficie-540x540-4.jpg"/>
+                            <p class="slide-text">Medía unos 7 metros de altura y casi 10 de anchura y pesaba, en vacío, 15 toneladas.</p>
+                            <span class="slide-numbertext">2 / 9</span>
+                        </div>
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-orbita-superficie-540x540-1.jpg"/>
+                            <p class="slide-text">En sus últimas versiones podía permanecer en la superficie de la Luna hasta 75 horas. </p>
+                            <span class="slide-numbertext">3 / 9</span>
+                        </div>
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-orbita-lunar-540x540-1.jpg"/>
+                            <p class="slide-text">Constaba de una fase de descenso hexagonal con cuatro características patas.</p>
+                            <span class="slide-numbertext">4 / 9</span>
+                        </div>
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-fase-ascenso-540x540-2.jpg"/>
+                            <p class="slide-text">Y una fase de ascenso que devolvía a los tripulantes a la órbita lunar.</p>
+                            <span class="slide-numbertext">5 / 9</span>
+                        </div>
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-fase-ascenso-540x540-1.jpg"/>
+                            <p class="slide-text">Estaba pensado para operar exclusivamente en el vacío espacial y la superficie lunar.</p>
+                            <span class="slide-numbertext">7 / 9</span>
+                        </div>
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-fabricacion-540x540.jpg"/>
+                            <p class="slide-text">Por lo que su estructura era muy ligera y no tenía forma aerodinámica.</p>
+                            <span class="slide-numbertext">6 / 9</span>
+                        </div>
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-interior-540x540-3.jpg"/>
+                            <p class="slide-text">No disponía de asientos, los astronautas debían permanecer de pie en su interior.</p>
+                            <span class="slide-numbertext">8 / 9</span>
+                        </div>
+                        <div class="mySlides5 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/modulo-lunar-avabdonado-540x540.jpg"/>
+                            <p class="slide-text">Cuando los astronautas volvían al módulo de mando, era abandonado en la órbita lunar.</p>
+                            <span class="slide-numbertext">9 / 9</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,4)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,4)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>		
+		<div id="detalle-6" class="overlay">
+			<div class="popup">
+				<div class="cabecera-popup">
+					<h2 class="titulo-popup">6. El traje lunar</h2>
+					<a class="boton-cierre-popup" href="#nave-apolo"></a>
+				</div>
+				<div class="cuerpo-popup">
+                    <div class="slideshow-container">
+                        <div class="mySlides6 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/traje-lunar-540x540-2.jpg"/>
+                            <p class="slide-text">Daba soporte vital a los astronautas durante las actividades extravehiculares.</p>
+                            <span class="slide-numbertext">1 / 4</span>
+                        </div>
+                        <div class="mySlides6 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/traje-lunar-540x540-6.jpg"/>
+                            <p class="slide-text">Podía ser usado por hasta 115 horas en modo presurizado y refrigerado por líquido.</p>
+                            <span class="slide-numbertext">2 / 4</span>
+                        </div>
+                        <div class="mySlides6 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/traje-lunar-540x540-1-ok.jpg"/>
+                            <p class="slide-text">También podía usarse hasta durante 14 días en modo no presurizado.</p>
+                            <span class="slide-numbertext">3 / 4</span>
+                        </div>
+                        <div class="mySlides6 fade">
+                            <!--<h2 class="slide-title">Título</h2>-->
+                            <img class="slide-image" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/06/traje-lunar-540x540-5.jpg"/>
+                            <p class="slide-text">Disponía de una visera ajustable para filtrar los rayos ultravioleta solares.</p>
+                            <span class="slide-numbertext">4 / 4</span>
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1,5)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,5)">&#10095;</a>
+                    </div>
+				</div>
+				<div class="pie-popup">
+				</div>
+			</div>
+		</div>			
+	</div>
+<!-- PIE -->
+<div class="pie">
+		<img class="logo" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2019/05/logo-lv-131x20.png" title="La Vanguardia" alt="La Vanguardia" />
+		<span class="">Fuente: Smithsonian National Air and Space Museum.</span>
+</div>
+</div>
+<!-- SCRIPT SLIDER -->
+                    <script>
+                        var slideIndex = [1,1,1,1,1,1,1];
+                        var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5", "mySlides6", "mySlides7"]
+                        showSlides(1, 0);
+                        showSlides(1, 1);
+                        showSlides(1, 2);
+                        showSlides(1, 3);
+						showSlides(1, 4);
+						showSlides(1, 5);
+						showSlides(1, 6);
+
+                        function plusSlides(n, no) {
+                            showSlides(slideIndex[no] += n, no);
+                        }
+
+                        function showSlides(n, no) {
+                            var i;
+                            var x = document.getElementsByClassName(slideId[no]);
+                            if (n > x.length) {slideIndex[no] = 1}    
+                            if (n < 1) {slideIndex[no] = x.length}
+                            for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";  
+                            }
+                            x[slideIndex[no]-1].style.display = "block";  
+                        }
+                    </script>
+<!-- FIN CAJA -->
